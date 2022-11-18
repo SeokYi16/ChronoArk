@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -76,9 +76,171 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: sactx-2048x2048-DXT5-AzarSkills-461540df_0
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 0
+        width: 222
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d490336e0811b4408f09cf641e7896f
+      internalID: 369350182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-2048x2048-DXT5-AzarSkills-461540df_1
+      rect:
+        serializedVersion: 2
+        x: 1111
+        y: 0
+        width: 224
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3250b49044abdd4aafba2295ae8168c
+      internalID: -1304395953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-2048x2048-DXT5-AzarSkills-461540df_2
+      rect:
+        serializedVersion: 2
+        x: 1256
+        y: 518
+        width: 416
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7e6ff47f3e900643ad0e62b45bef525
+      internalID: -1309000724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-2048x2048-DXT5-AzarSkills-461540df_3
+      rect:
+        serializedVersion: 2
+        x: 1112
+        y: 793
+        width: 419
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e94bd17163ddb7649b25bc2a6b9d7a9f
+      internalID: 2082238028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-2048x2048-DXT5-AzarSkills-461540df_4
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 850
+        width: 444
+        height: 284
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8edebc1ca2a34c4c8168986a36e163a
+      internalID: 906212919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-2048x2048-DXT5-AzarSkills-461540df_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 566
+        width: 441
+        height: 283
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 358a8d139a90ce34db5a3d79f6cf8670
+      internalID: 2043513929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -89,7 +251,51 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      sactx-2048x2048-DXT5-AzarSkills-461540df_37: -1470930662
+      sactx-2048x2048-DXT5-AzarSkills-461540df_17: 405609645
+      sactx-2048x2048-DXT5-AzarSkills-461540df_28: 1017725306
+      sactx-2048x2048-DXT5-AzarSkills-461540df_42: -1535514257
+      sactx-2048x2048-DXT5-AzarSkills-461540df_2: -1309000724
+      sactx-2048x2048-DXT5-AzarSkills-461540df_33: 890357568
+      sactx-2048x2048-DXT5-AzarSkills-461540df_36: -883964071
+      sactx-2048x2048-DXT5-AzarSkills-461540df_7: -2001241677
+      sactx-2048x2048-DXT5-AzarSkills-461540df_40: 861894867
+      sactx-2048x2048-DXT5-AzarSkills-461540df_26: -1686558407
+      sactx-2048x2048-DXT5-AzarSkills-461540df_32: 456753689
+      sactx-2048x2048-DXT5-AzarSkills-461540df_5: 2043513929
+      sactx-2048x2048-DXT5-AzarSkills-461540df_13: 62833590
+      sactx-2048x2048-DXT5-AzarSkills-461540df_29: -730975865
+      sactx-2048x2048-DXT5-AzarSkills-461540df_19: 586217167
+      sactx-2048x2048-DXT5-AzarSkills-461540df_31: 1020999175
+      sactx-2048x2048-DXT5-AzarSkills-461540df_35: -1273253659
+      sactx-2048x2048-DXT5-AzarSkills-461540df_20: 99928871
+      sactx-2048x2048-DXT5-AzarSkills-461540df_6: -743336492
+      sactx-2048x2048-DXT5-AzarSkills-461540df_30: 1631515106
+      sactx-2048x2048-DXT5-AzarSkills-461540df_38: -1207566127
+      sactx-2048x2048-DXT5-AzarSkills-461540df_11: 1753680031
+      sactx-2048x2048-DXT5-AzarSkills-461540df_0: 369350182
+      sactx-2048x2048-DXT5-AzarSkills-461540df_43: -2065443917
+      sactx-2048x2048-DXT5-AzarSkills-461540df_4: 906212919
+      sactx-2048x2048-DXT5-AzarSkills-461540df_10: 1726093606
+      sactx-2048x2048-DXT5-AzarSkills-461540df_15: -1173696720
+      sactx-2048x2048-DXT5-AzarSkills-461540df_22: 1919315437
+      sactx-2048x2048-DXT5-AzarSkills-461540df_9: 1577613061
+      sactx-2048x2048-DXT5-AzarSkills-461540df_8: -1504226588
+      sactx-2048x2048-DXT5-AzarSkills-461540df_23: 1823052555
+      sactx-2048x2048-DXT5-AzarSkills-461540df_39: 623858840
+      sactx-2048x2048-DXT5-AzarSkills-461540df_16: 1490193805
+      sactx-2048x2048-DXT5-AzarSkills-461540df_21: -1720748479
+      sactx-2048x2048-DXT5-AzarSkills-461540df_24: 1296898941
+      sactx-2048x2048-DXT5-AzarSkills-461540df_1: -1304395953
+      sactx-2048x2048-DXT5-AzarSkills-461540df_41: 348309413
+      sactx-2048x2048-DXT5-AzarSkills-461540df_12: -2015387152
+      sactx-2048x2048-DXT5-AzarSkills-461540df_3: 2082238028
+      sactx-2048x2048-DXT5-AzarSkills-461540df_27: 50507062
+      sactx-2048x2048-DXT5-AzarSkills-461540df_18: 2017291932
+      sactx-2048x2048-DXT5-AzarSkills-461540df_34: -109768752
+      sactx-2048x2048-DXT5-AzarSkills-461540df_25: 1545893562
+      sactx-2048x2048-DXT5-AzarSkills-461540df_14: -958589530
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

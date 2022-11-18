@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f9c6cc203d7c20f4c8d380e0712c13c6
+guid: 07a95f1e443bce643915d742d63b0d0f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sactx-2048x2048-DXT5-JoeySkillImage-e332a7b6_1
+      name: sactx-4096x2048-DXT5-StartingPartyAtlas-6e4369d2_0
       rect:
         serializedVersion: 2
-        x: 1334
-        y: 1931
-        width: 412
-        height: 82
+        x: 2299
+        y: 395
+        width: 431
+        height: 404
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,99 +130,83 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8bb1fd1133f90e040a9cb22c09f9a1ca
-      internalID: 1604387859
+      spriteID: 75be413393855e34e8dcf70e3fe7d7c0
+      internalID: -559390681
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sactx-2048x2048-DXT5-JoeySkillImage-e332a7b6_0
+      name: sactx-4096x2048-DXT5-StartingPartyAtlas-6e4369d2_1
       rect:
         serializedVersion: 2
-        x: 443
-        y: 283
-        width: 441
-        height: 284
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 70a0d916bc3cbc349a9689457ee75b6c
-      internalID: -38755552
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sactx-2048x2048-DXT5-JoeySkillImage-e332a7b6_4
-      rect:
-        serializedVersion: 2
-        x: 1558
-        y: 1409
-        width: 220
-        height: 177
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 084dc9d50e1338d4697459354203b31f
-      internalID: -69779031
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sactx-2048x2048-DXT5-JoeySkillImage-e332a7b6_5
-      rect:
-        serializedVersion: 2
-        x: 1773
+        x: 2740
         y: 0
-        width: 223
-        height: 182
+        width: 427
+        height: 388
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87cb7463a2e857e4ba6cfd6436ae31ac
+      internalID: 58925134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-4096x2048-DXT5-StartingPartyAtlas-6e4369d2_2
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 1670
+        width: 371
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17eaea6d905db264381dbac6bf4ab4db
+      internalID: -1315103360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-4096x2048-DXT5-StartingPartyAtlas-6e4369d2_3
+      rect:
+        serializedVersion: 2
+        x: 3291
+        y: 414
+        width: 185
+        height: 124
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 41.5, y: -90}
-        - {x: -41.5, y: -91}
-        - {x: -106.5, y: -71}
-        - {x: -107.5, y: 62}
-        - {x: 4.5, y: 91}
-        - {x: 111.5, y: 59}
-        - {x: 111.5, y: -75}
+      - - {x: -89.5, y: -62}
+        - {x: -89.5, y: 52}
+        - {x: -87.5, y: 52}
+        - {x: -87.5, y: 54}
+        - {x: -85.5, y: 54}
+        - {x: -85.5, y: 56}
+        - {x: -83.5, y: 56}
+        - {x: -83.5, y: 58}
+        - {x: -81.5, y: 58}
+        - {x: -81.5, y: 62}
+        - {x: 92.5, y: 62}
+        - {x: 92.5, y: -62}
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9772f5ba6fceb74f927e59e89f242cb
-      internalID: -1238443931
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sactx-2048x2048-DXT5-JoeySkillImage-e332a7b6_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1418
-        width: 442
-        height: 285
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f91f46c4a4344e148b2754a562d6ae0f
-      internalID: 1444358488
+      spriteID: 849c28cc5878b9946a1359bbbef8e278
+      internalID: -562771256
       vertices: []
       indices: 
       edges: []
@@ -238,14 +222,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      sactx-2048x2048-DXT5-JoeySkillImage-e332a7b6_0: -38755552
-      sactx-2048x2048-DXT5-JoeySkillImage-e332a7b6_1: 1604387859
-      sactx-2048x2048-DXT5-JoeySkillImage-e332a7b6_6: 1444358488
-      sactx-2048x2048-DXT5-JoeySkillImage-e332a7b6_4: -69779031
-      sactx-2048x2048-DXT5-JoeySkillImage-e332a7b6_5: -1238443931
-      sactx-2048x2048-DXT5-JoeySkillImage-e332a7b6_2: -399903591
-      sactx-2048x2048-DXT5-JoeySkillImage-e332a7b6_3: -1988101442
-      sactx-2048x2048-DXT5-JoeySkillImage-e332a7b6_7: -371328733
+      sactx-4096x2048-DXT5-StartingPartyAtlas-6e4369d2_0: -559390681
+      sactx-4096x2048-DXT5-StartingPartyAtlas-6e4369d2_1: 58925134
+      sactx-4096x2048-DXT5-StartingPartyAtlas-6e4369d2_2: -1315103360
+      sactx-4096x2048-DXT5-StartingPartyAtlas-6e4369d2_3: -562771256
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

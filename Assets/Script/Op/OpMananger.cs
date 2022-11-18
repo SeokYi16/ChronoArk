@@ -7,6 +7,9 @@ public class OpMananger : MonoBehaviour
 {
     public GameObject panel_Menu;
 
+    public GameObject Start_Menu_Panel;
+    public Image Start_Menu_Img;
+
     public Image start_btn;
     public Image option_btn;
     public Image exit_btn;
@@ -44,5 +47,11 @@ public class OpMananger : MonoBehaviour
     public void Exit_Exit_Btn()
     {
         exit_btn.enabled = false;
+    }
+
+    public void Start_On_Click()
+    {
+        Start_Menu_Panel.SetActive(true);
+        panel_Menu.SetActive(false);
     }
 }
