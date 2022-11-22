@@ -220,6 +220,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: sactx-2048x2048-DXT5-UIAssetsAtlas-7580c9ca_5
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 37
+        width: 1650
+        height: 277
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b14c95fa50691ae4d962d6daf18c2a27
+      internalID: -1331029159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
