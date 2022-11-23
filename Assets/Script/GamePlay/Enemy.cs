@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    GameObject[] enemyprefabs;
+    int[] enemyhp = { 30, 16, 20, 27, 34, 50 };
+    int[] enemystr = { 10, 5, 8, 9, 13, 17};
+    int[] enemyspd = { 7, 4, 5, 11, 10, 13};
+    int[] enemydef = { 5, 3, 4, 6, 7, 9};
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
         
     }
