@@ -220,7 +220,7 @@ TextureImporter:
         width: 1925
         height: 1084
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -228,6 +228,27 @@ TextureImporter:
       bones: []
       spriteID: c7509ca5aad302746a8359c31f94361a
       internalID: -1963098727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-4096x2048-DXT5-StartingPartyAtlas-6e4369d2_5
+      rect:
+        serializedVersion: 2
+        x: 2919
+        y: 397
+        width: 371
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 892fc5d0dff1759438094ac14ec77c2e
+      internalID: -1577140610
       vertices: []
       indices: 
       edges: []
@@ -246,6 +267,7 @@ TextureImporter:
       sactx-4096x2048-DXT5-StartingPartyAtlas-6e4369d2_4: -1963098727
       sactx-4096x2048-DXT5-StartingPartyAtlas-6e4369d2_0: -559390681
       sactx-4096x2048-DXT5-StartingPartyAtlas-6e4369d2_1: 58925134
+      sactx-4096x2048-DXT5-StartingPartyAtlas-6e4369d2_5: -1577140610
       sactx-4096x2048-DXT5-StartingPartyAtlas-6e4369d2_2: -1315103360
       sactx-4096x2048-DXT5-StartingPartyAtlas-6e4369d2_3: -562771256
   spritePackingTag: 

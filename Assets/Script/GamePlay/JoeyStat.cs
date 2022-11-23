@@ -9,4 +9,13 @@ public class JoeyStat : MonoBehaviour
     public float def=7;
     public float hp=8;
 
+    public float max_hp = 8;
+
+    private void Update()
+    {
+        if (hp >= max_hp)
+        {
+            hp = max_hp;
+        }
+    }
 }

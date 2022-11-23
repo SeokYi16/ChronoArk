@@ -9,4 +9,13 @@ public class AzarStat : MonoBehaviour
     public float def=8;
     public float hp=9;
 
+    public float max_hp = 9;
+
+    private void Update()
+    {
+        if (hp >= max_hp)
+        {
+            hp = max_hp;
+        }
+    }
 }

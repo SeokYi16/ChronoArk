@@ -241,6 +241,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: sactx-2048x2048-DXT5-UIAssetsAtlas-7580c9ca_6
+      rect:
+        serializedVersion: 2
+        x: 1212
+        y: 1200
+        width: 108
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 799a73a179a02d5499f42f3b4857377d
+      internalID: 1593544629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-2048x2048-DXT5-UIAssetsAtlas-7580c9ca_7
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 1762
+        width: 210
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f765b12a86730347a0611cfd73e0a11
+      internalID: 1640439066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -253,6 +295,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       sactx-2048x2048-DXT5-UIAssetsAtlas-7580c9ca_6: 1593544629
+      sactx-2048x2048-DXT5-UIAssetsAtlas-7580c9ca_7: 1640439066
       sactx-2048x2048-DXT5-UIAssetsAtlas-7580c9ca_0: 1056664530
       sactx-2048x2048-DXT5-UIAssetsAtlas-7580c9ca_1: -1459054278
       sactx-2048x2048-DXT5-UIAssetsAtlas-7580c9ca_3: 1568449893

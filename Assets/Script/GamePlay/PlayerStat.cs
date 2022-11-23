@@ -9,4 +9,13 @@ public class PlayerStat : MonoBehaviour
     public float def = 6;
     public float hp = 7;
 
+    public float max_hp = 7;
+
+    private void Update()
+    {
+        if(hp >= max_hp)
+        {
+            hp = max_hp;
+        }
+    }
 }
