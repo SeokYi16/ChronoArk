@@ -7,9 +7,9 @@ public class JoeyStat : MonoBehaviour
     public int speed =5;
     public int str =6;
     public int def =7;
-    public int hp =8;
+    public int hp =21;
 
-    public int max_hp = 8;
+    public int max_hp = 21;
 
     private void Update()
     {

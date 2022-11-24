@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class AzarStat : MonoBehaviour
 {
-    public int speed =6;
-    public int str =7;
-    public int def =8;
-    public int hp =9;
+    public int speed = 6;
+    public int str = 7;
+    public int def = 8;
+    public int hp = 26;
 
-    public int max_hp = 9;
+    public int max_hp = 26;
 
     private void Update()
     {
