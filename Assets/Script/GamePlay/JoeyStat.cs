@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class JoeyStat : MonoBehaviour
 {
-    public float speed =5;
-    public float str=6;
-    public float def=7;
-    public float hp=8;
+    public int speed =5;
+    public int str =6;
+    public int def =7;
+    public int hp =8;
 
-    public float max_hp = 8;
+    public int max_hp = 8;
 
     private void Update()
     {

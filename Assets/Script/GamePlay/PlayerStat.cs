@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerStat : MonoBehaviour
 {
-    public float speed = 4;
-    public float str = 5;
-    public float def = 6;
-    public float hp = 7;
+    public int speed = 4;
+    public int str = 5;
+    public int def = 6;
+    public int hp = 7;
 
-    public float max_hp = 7;
+    public int max_hp = 7;
 
     private void Update()
     {

@@ -27,8 +27,6 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject player_Info;
 
-    EnemySpawn es;
-
     private void Awake()
     {//ΩÃ±€≈Ê
         if (null == instance)
@@ -40,8 +38,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-
-        es = GetComponent<EnemySpawn>();
     }
 
     public static GameManager Instance
@@ -93,7 +89,6 @@ public class GameManager : MonoBehaviour
     public bool isEnemy_Fight;
     public void Enemy_Panel()
     {
-        es.Enemy_Spawn();
         enemy_panel.SetActive(true);
         isEnemy_Fight = true;
     }
@@ -101,7 +96,6 @@ public class GameManager : MonoBehaviour
     public void Enemy_Panel_Close()
     {
         enemy_panel.SetActive(false);
-        es.Enemy_All_Dead();
         isEnemy_Fight = false;
     }
 }
