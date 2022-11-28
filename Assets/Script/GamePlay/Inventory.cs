@@ -2,34 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Inventory : MonoBehaviour
 {
-    public int itemID;
+
     public Image icon;
-    public GameObject infoWindow;
-    public float hp;
-    public float str;
-    public float hungry;
+    public int str;
+    public int def;
+    public int spd;
+    public int hp;
     public string type;
 
     public bool isEq;
 
-    public void ItemInfoOn()
+    public GameObject Item_Info_obj;
+    public TextMeshProUGUI Item_Info_des;
+    public int itemID;
+
+    public void Item_Info_Open()
     {
-        ItemDataReader.Instance.ItemInfo(itemID);
+        Item_Info_obj.SetActive(true);
+        Item_Info_obj.transform.position = new Vector2(Input.mousePosition.x + 150,
+            Input.mousePosition.y - 70);
+
+        Item_Info_des.text = 
+        ItemDataReader.Instance.itemName(itemID) + '\n' + ItemDataReader.Instance.itemDes(itemID) +
+        '\n' + '\n' + "보유 :" + ItemDataReader.Instance.getItemValue[itemID].ToString();
     }
 
-    public void InfoOn()
+    public void Item_Info_Close()
     {
-        infoWindow.SetActive(true);
-        //아이템 포지션 + 아이템 사이즈 + 간격 
-        // 
-    }
-
-    public void InfoOff()
-    {
-        infoWindow.SetActive(false);
+        Item_Info_obj.SetActive(false);
     }
 
     public void UseItem()

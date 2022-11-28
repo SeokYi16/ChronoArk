@@ -261,6 +261,7 @@ GameObject:
   - component: {fileID: 6324180318328781935}
   - component: {fileID: 6324180318328781921}
   - component: {fileID: 6324180318328781920}
+  - component: {fileID: 5786064019369816432}
   m_Layer: 5
   m_Name: Horse
   m_TagString: Untagged
@@ -327,6 +328,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5786064019369816432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6324180318328781934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ca4d7d3b1aec01448d97fd35c234d48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horse_maxhp: 25
+  horse_hp: 25
+  horse_str: 9
+  horse_spd: 11
+  horse_def: 6
+  horse_slider: {fileID: 731911106034841391}
+  horse_hp_text: {fileID: 6295749668324197201}
 --- !u!1 &7002878195250243034
 GameObject:
   m_ObjectHideFlags: 0

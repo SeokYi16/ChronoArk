@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3636563024799054064}
   - component: {fileID: 3636563024799054066}
   - component: {fileID: 3636563024799054067}
+  - component: {fileID: 1226083294593909330}
   m_Layer: 5
   m_Name: Dochi
   m_TagString: Untagged
@@ -77,6 +78,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1226083294593909330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3636563024799054065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9248c917e5850984980fd0ecf436145c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dochimaxhp: 16
+  dochihp: 16
+  dochistr: 5
+  dochispd: 4
+  dochidef: 3
+  dochi_slider: {fileID: 8403001915897361216}
+  dochi_hp_text: {fileID: 840674351641215241}
 --- !u!1 &4221745189056982486
 GameObject:
   m_ObjectHideFlags: 0

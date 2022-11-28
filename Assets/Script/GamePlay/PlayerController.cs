@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 4f;
     Rigidbody2D myrigid;
     Animator myani;
+    bool isEnemy;
 
     private void Start()
     {
@@ -16,7 +17,10 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Move();
+        if (!isEnemy)
+        {
+            Move();
+        }
     }
 
     void Move()
@@ -50,10 +54,11 @@ public class PlayerController : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
-    {//Àû°ú ¸¸³µÀ» ¶§ Enemy Äµ¹ö½º ¶ç¿ì±â
+    {//Àû°ú ¸¸³µÀ» ¶§ Enemy Äµ¹ö½º ¶ç¿ì±â ¿òÁ÷ÀÓ Á¦¾î
         if(collision.gameObject.tag == "Enemy")
         {
             GameManager.Instance.Enemy_Panel();
+            isEnemy = true;
         }
     }
 }
