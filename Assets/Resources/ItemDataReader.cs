@@ -15,26 +15,6 @@ public class ItemDataReader : MonoBehaviour
     {
         instance = this; //싱글톤 활성화
         itemData = CSVReader.Read("ItemData");
-        ItemSetting();
-    }
-
-    void ItemSetting()
-    {
-        for (int i = 0; i < totalItemCount; i++)
-        {
-            GameObject Item = Instantiate(buttonPrefab, Vector3.zero, transform.rotation);
-            Debug.Log("Item = " + Item.name);
-            ////데이터 입력시키기
-            Item.name = "Item_" + i; //이름 부여
-            Item.GetComponent<Inventory>().itemID = i;
-            Item.GetComponent<Inventory>().icon.sprite = itemIcon[iconNo(i)];
-            Item.GetComponent<Inventory>().str = itemStr(i);
-            Item.GetComponent<Inventory>().def = itemDef(i);
-            Item.GetComponent<Inventory>().spd = itemSpd(i);
-            Item.GetComponent<Inventory>().hp = itemHp(i);
-            Item.GetComponent<Inventory>().type = itemType(i);
-            Item.SetActive(true);
-        }
     }
 
     public static ItemDataReader Instance

@@ -15,6 +15,8 @@ public class Witch : EnemyInfo
     public Slider witch_slider;
     public TextMeshProUGUI witch_hp_text;
 
+    FightMananger FM;
+
     public override void MonsterAtk(int monsterstr, int playerdef, int playerhp)
     {
         base.MonsterAtk(monsterstr, playerdef, playerhp);
@@ -28,6 +30,7 @@ public class Witch : EnemyInfo
     private void Start()
     {
         witch_slider.maxValue = witch_maxhp;
+        FM = FindObjectOfType<FightMananger>();
     }
 
     private void Update()

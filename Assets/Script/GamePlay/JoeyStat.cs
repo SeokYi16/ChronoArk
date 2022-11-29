@@ -11,6 +11,8 @@ public class JoeyStat : MonoBehaviour
 
     public int max_hp = 21;
 
+    public bool isTurn;
+
     private void Update()
     {
         if (hp >= max_hp)

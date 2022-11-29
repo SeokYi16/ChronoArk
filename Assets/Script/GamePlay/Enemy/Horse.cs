@@ -15,6 +15,8 @@ public class Horse : EnemyInfo
     public Slider horse_slider;
     public TextMeshProUGUI horse_hp_text;
 
+    FightMananger FM;
+
     public override void MonsterAtk(int monsterstr, int playerdef, int playerhp)
     {
         base.MonsterAtk(monsterstr, playerdef, playerhp);
@@ -28,6 +30,7 @@ public class Horse : EnemyInfo
     private void Start()
     {
         horse_slider.maxValue = horse_maxhp;
+        FM = FindObjectOfType<FightMananger>();
     }
 
     private void Update()

@@ -15,6 +15,8 @@ public class Dochi2 : EnemyInfo
     public Slider dochi2_slider;
     public TextMeshProUGUI dochi2_hp_text;
 
+    FightMananger FM;
+
     public override void MonsterAtk(int monsterstr, int playerdef, int playerhp)
     {
         base.MonsterAtk(monsterstr, playerdef, playerhp);
@@ -28,6 +30,7 @@ public class Dochi2 : EnemyInfo
     private void Start()
     {
         dochi2_slider.maxValue = dochi2maxhp;
+        FM = FindObjectOfType<FightMananger>();
     }
 
     private void Update()

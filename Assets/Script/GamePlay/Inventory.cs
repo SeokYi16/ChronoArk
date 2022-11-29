@@ -20,15 +20,28 @@ public class Inventory : MonoBehaviour
     public TextMeshProUGUI Item_Info_des;
     public int itemID;
 
+    public GameObject[] slot;
+
     public void Item_Info_Open()
     {
+        
         Item_Info_obj.SetActive(true);
         Item_Info_obj.transform.position = new Vector2(Input.mousePosition.x + 150,
             Input.mousePosition.y - 70);
+        Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
 
+        if(hit.collider != null)
+        {
+            Item_Info_obj.SetActive(true);
+            Item_Info_des.text =ItemDataReader.Instance.itemName(itemID) + '\n' + ItemDataReader.Instance.itemDes(itemID) +
+                                '\n' + '\n' + "보유 :" + ItemDataReader.Instance.getItemValue[itemID].ToString();
+        }
+        
         Item_Info_des.text = 
         ItemDataReader.Instance.itemName(itemID) + '\n' + ItemDataReader.Instance.itemDes(itemID) +
         '\n' + '\n' + "보유 :" + ItemDataReader.Instance.getItemValue[itemID].ToString();
+        
     }
 
     public void Item_Info_Close()

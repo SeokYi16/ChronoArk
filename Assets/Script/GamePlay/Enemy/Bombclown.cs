@@ -15,6 +15,8 @@ public class Bombclown : EnemyInfo
     public Slider Bombclown_slider;
     public TextMeshProUGUI Bombclown_hp_text;
 
+    FightMananger FM;
+
     public override void MonsterAtk(int monsterstr, int playerdef, int playerhp)
     {
         base.MonsterAtk(monsterstr, playerdef, playerhp);
@@ -28,6 +30,7 @@ public class Bombclown : EnemyInfo
     private void Start()
     {
         Bombclown_slider.maxValue = Bombclown_maxhp;
+        FM = FindObjectOfType<FightMananger>();
     }
 
     private void Update()

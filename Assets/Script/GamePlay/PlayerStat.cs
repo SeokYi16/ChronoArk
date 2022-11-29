@@ -11,6 +11,8 @@ public class PlayerStat : MonoBehaviour
 
     public int max_hp = 24;
 
+    public bool isTurn;
+
     private void Update()
     {
         if(hp >= max_hp)

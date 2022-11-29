@@ -15,6 +15,8 @@ public class W_Armor : EnemyInfo
     public Slider armor_slider;
     public TextMeshProUGUI armor_hp_text;
 
+    FightMananger FM;
+
     public override void MonsterAtk(int monsterstr, int playerdef, int playerhp)
     {
         base.MonsterAtk(monsterstr, playerdef, playerhp);
@@ -28,6 +30,7 @@ public class W_Armor : EnemyInfo
     private void Start()
     {
         armor_slider.maxValue = armor_maxhp;
+        FM = FindObjectOfType<FightMananger>();
     }
 
     private void Update()
