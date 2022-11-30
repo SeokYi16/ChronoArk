@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 4831951982629604098}
   - component: {fileID: 4831951982629604096}
   - component: {fileID: 4831951982629604097}
-  - component: {fileID: -6998652569645647575}
+  - component: {fileID: -1250283250150096694}
   m_Layer: 5
   m_Name: Bombclown
   m_TagString: Untagged
@@ -230,7 +230,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &-6998652569645647575
+--- !u!114 &-1250283250150096694
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -239,16 +239,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 4831951982629604099}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cf484023d5c8ce4da343c3ab4d6d7f0, type: 3}
+  m_Script: {fileID: 11500000, guid: 6721d1eadc772954e9b6e5b4232eebc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bombclown_maxhp: 30
-  Bombclown_hp: 30
-  Bombclown_str: 10
-  Bombclown_spd: 7
-  Bombclown_def: 5
-  Bombclown_slider: {fileID: 5946981582731017311}
-  Bombclown_hp_text: {fileID: 7268101734405698209}
+  enemyhp: 30
+  enemystr: 10
+  enemyspd: 7
+  enemydef: 5
+  enemymaxhp: 30
+  isAtk: 0
+  enemy_slider: {fileID: 5946981582731017311}
+  enemy_hp_text: {fileID: 7268101734405698209}
 --- !u!1 &6045310579378083108
 GameObject:
   m_ObjectHideFlags: 0

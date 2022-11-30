@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 3558050327477902518}
   - component: {fileID: 3558050327477902516}
   - component: {fileID: 3558050327477902519}
-  - component: {fileID: 5996214669836558193}
+  - component: {fileID: -6089332059456401294}
   m_Layer: 5
   m_Name: Witch
   m_TagString: Untagged
@@ -215,7 +215,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5996214669836558193
+--- !u!114 &-6089332059456401294
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -224,16 +224,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 3558050327477902505}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b76ea94b9a2ce5048ae53972860a2f60, type: 3}
+  m_Script: {fileID: 11500000, guid: 6721d1eadc772954e9b6e5b4232eebc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  witch_maxhp: 34
-  witch_hp: 34
-  witch_str: 13
-  witch_spd: 10
-  witch_def: 7
-  witch_slider: {fileID: 2695045534517485920}
-  witch_hp_text: {fileID: 7291472770316438165}
+  enemyhp: 34
+  enemystr: 13
+  enemyspd: 10
+  enemydef: 7
+  enemymaxhp: 34
+  isAtk: 0
+  enemy_slider: {fileID: 2695045534517485920}
+  enemy_hp_text: {fileID: 7291472770316438165}
 --- !u!1 &4030182913305483249
 GameObject:
   m_ObjectHideFlags: 0
