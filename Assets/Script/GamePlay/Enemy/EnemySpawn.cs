@@ -16,6 +16,8 @@ public class EnemySpawn : MonoBehaviour
         if(collision.gameObject.tag == "Enemy")
         {
             enemy = collision.GetComponent<Enemy>();
+            //FightMananger.Instance.gameObjects = enemy.enemyprefabs;
+
             for (int i = 0; i < enemy.enemyprefabs.Length; i++)
             {
                 //Enemy 배열 오브젝트를 가져와서 enemy_trans_pos에 생성

@@ -402,6 +402,7 @@ MonoBehaviour:
   isAtk: 0
   enemy_slider: {fileID: 8880343124439666962}
   enemy_hp_text: {fileID: 8729038004070100281}
+  enemy_slier_icon: {fileID: 21300000, guid: 85d98280a359d954e93b93f77fb33d3f, type: 3}
 --- !u!1 &8733962285379310788
 GameObject:
   m_ObjectHideFlags: 0

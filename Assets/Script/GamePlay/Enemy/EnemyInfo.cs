@@ -24,6 +24,8 @@ public class EnemyInfo : MonoBehaviour
     public Slider enemy_slider;
     public TextMeshProUGUI enemy_hp_text;
 
+    public Sprite enemy_slier_icon;
+
     private void Start()
     {   //적 hp = 최대 hp 와 슬라이더 max값을 적 maxhp로 바꿈
         enemyhp = enemymaxhp;
@@ -41,6 +43,10 @@ public class EnemyInfo : MonoBehaviour
         }
     }
 
+    public void Monster_Atk()
+    {
+
+    }
     public virtual void MonsterAtk(int monsterstr, int playerdef, int playerhp)
     {
         if(playerdef >= monsterstr)

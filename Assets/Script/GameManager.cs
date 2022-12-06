@@ -93,8 +93,8 @@ public class GameManager : MonoBehaviour
     {
         enemy_panel.SetActive(true);
         isEnemy_Fight = true;
-        FM = FindObjectOfType<FightMananger>();
-        FM.FirstTurn(playerstat.speed, azarstat.speed, joeystat.speed); //속도 후 계산방법은?
+        //FM = FindObjectOfType<FightMananger>();
+        //FM.FirstTurn(playerstat.speed, azarstat.speed, joeystat.speed); //속도 후 계산방법은?
     }
 
     public void Enemy_Panel_Close()
