@@ -26,6 +26,7 @@ public class EnemyInfo : MonoBehaviour
 
     public Sprite enemy_slier_icon;
 
+
     private void Start()
     {   //적 hp = 최대 hp 와 슬라이더 max값을 적 maxhp로 바꿈
         enemyhp = enemymaxhp;

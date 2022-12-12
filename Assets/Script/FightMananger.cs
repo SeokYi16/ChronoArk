@@ -8,7 +8,7 @@ public class FightMananger : MonoBehaviour
 {
     private static FightMananger instance = null;
 
-    EnemySpawn enemySpawn;
+    static EnemySpawn enemySpawn;
 
     public Slider player_TurnSlider;
     public Slider azar_TurnSlider;
@@ -33,11 +33,18 @@ public class FightMananger : MonoBehaviour
 
     public bool turn_start = false;
 
-    //public GameObject[] gameObjects;
+    public List<GameObject> enemy_gameObjects;
+
+    public GameObject[] gameObjects;
+
+    public List<EnemyInfo> enemy_info;
+
+    bool info_on = false;
 
     private void Awake()
     {
         enemySpawn = FindObjectOfType<EnemySpawn>();
+
         if (null == instance)
         {
             instance = this;
@@ -66,6 +73,15 @@ public class FightMananger : MonoBehaviour
         if (GameManager.Instance.isEnemy_Fight)
         {
             SliderCount();
+            if (!info_on)
+            {
+                Enemy_Info_obj();
+            }
+        }
+
+        if(enemy_gameObjects == null)
+        {
+            GameManager.Instance.isEnemy_Fight = false;
         }
         //플레이어 스킬 턴 관리
         if(player_turncount <= 0)
@@ -99,6 +115,15 @@ public class FightMananger : MonoBehaviour
         }
     }
 
+    void Enemy_Info_obj()
+    {
+        info_on = true;
+        for (int i = 0; i < enemySpawn.enemy_count.Count; i++)
+        {
+            enemy_info.Add(enemy_gameObjects[i].GetComponent<EnemyInfo>());
+        }
+    }
+
     void SliderCount()
     {
         int[] enemycount = new int[enemySpawn.enemy_count.Count];
@@ -107,11 +132,11 @@ public class FightMananger : MonoBehaviour
         for (int i = 0; i < enemySpawn.enemy_count.Count; i++)
         {
             enemycount[i] = enemySpawn.enemy_count[i].GetComponent<EnemyInfo>().enemyspd; //적 스피드를 담음
-            enemystr[i] = enemySpawn.enemy_count[i].GetComponent<EnemyInfo>().enemystr;
+            enemystr[i] = enemySpawn.enemy_count[i].GetComponent<EnemyInfo>().enemystr; // 적 공격력을 담음
             enemy_Slider_icon[i].sprite = enemySpawn.enemy_count[i].GetComponent<EnemyInfo>().enemy_slier_icon; // 아이콘 핸들 변경
             enemys_TurnSlider[i].gameObject.SetActive(true); // 적의 수만큼 슬라이더 오브젝트 실행
         }
-
+        
         if (!turn_start)
         {
             player_TurnSlider.value -= Time.deltaTime * 10 * playerStat.speed;
@@ -158,7 +183,8 @@ public class FightMananger : MonoBehaviour
                                 joeyStat.hp += -enemystr[i] + joeyStat.def;
                             }
                             enemys_TurnSlider[i].value = 100;
-                            //gameObjects[i].GetComponent<EnemyInfo>().Monster_Atk(); 플레이어를 공격하는 적(다른방법)
+
+                            //enemy_gameObjects[i].GetComponent<EnemyInfo>().Monster_Atk(); //플레이어를 공격하는 적(다른방법)
                             break;
                     }
                 }
@@ -172,7 +198,7 @@ public class FightMananger : MonoBehaviour
         if(player_TurnSlider.value <= 0 || azar_TurnSlider.value <= 0 || joey_TurnSlider.value <=0) //아군 캐릭터가 속도가 다 차면 잠깐 멈추고 공격가능하게 만들기
         {
             turn_start = true;
-            if(player_TurnSlider.value <= 0)
+            if(player_TurnSlider.value <= 0) //그 캐릭터의 턴이면 화살표 표기
             {
                 turn_arrow[0].SetActive(true);
             }
@@ -192,10 +218,14 @@ public class FightMananger : MonoBehaviour
 
     }
 
-    public void Azar_Skill_1()
+    public void Azar_Skill_1() // 특별스킬
     {
         if(azar_TurnSlider.value <= 0 && azar_turncount == 0)
         {
+            for(int i = 0; i < enemySpawn.enemy_count.Count; i++)
+            {
+                enemy_info[i].enemyhp += -azarStat.str + enemy_info[i].enemydef;
+            }
             turn_start = false;
             azar_TurnSlider.value = 99.99f;
             azar_turncount = 2;
@@ -203,18 +233,23 @@ public class FightMananger : MonoBehaviour
         }
     }
 
-    public void Azar_Skill_2()
+    public void Azar_Skill_2() //일반 스킬
     {
         if (azar_TurnSlider.value <= 0)
         {
-            turn_start = false;
-            azar_TurnSlider.value = 99.99f;
-            azar_turncount--;
-            turn_arrow[1].SetActive(false);
+
         }
     }
 
-    public void Joey_Skill_1()
+    public void Azar_Skill_2_Use() // 클릭 후 상대 클릭 시
+    {
+        turn_arrow[1].SetActive(false);
+        turn_start = false;
+        azar_TurnSlider.value = 99.99f;
+        azar_turncount--;
+    }
+
+    public void Joey_Skill_1() // 특별 스킬
     {
         if (joey_TurnSlider.value <= 0 && joey_turncount == 0)
         {
@@ -232,14 +267,19 @@ public class FightMananger : MonoBehaviour
     {
         if (joey_TurnSlider.value <= 0)
         {
-            turn_start = false;
-            joey_TurnSlider.value = 99.98f;
-            joey_turncount--;
-            turn_arrow[2].SetActive(false);
+
         }
     }
 
-    public void Player_Skill_1()
+    public void Joey_Skill_2_Use()
+    {
+        turn_start = false;
+        joey_TurnSlider.value = 99.98f;
+        joey_turncount--;
+        turn_arrow[2].SetActive(false);
+    }
+
+    public void Player_Skill_1() //특별스킬
     {
         if (player_TurnSlider.value <= 0 && player_turncount == 0)
         {
@@ -254,10 +294,15 @@ public class FightMananger : MonoBehaviour
     {
         if (player_TurnSlider.value <= 0)
         {
-            turn_start = false;
-            player_TurnSlider.value = 99.97f;
-            player_turncount--;
-            turn_arrow[0].SetActive(false);
+
         }
+    }
+
+    public void Player_Skill_2_Use()
+    {
+        turn_start = false;
+        player_TurnSlider.value = 99.97f;
+        player_turncount--;
+        turn_arrow[0].SetActive(false);
     }
 }
