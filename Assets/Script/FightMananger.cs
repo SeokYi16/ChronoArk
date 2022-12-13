@@ -9,37 +9,39 @@ public class FightMananger : MonoBehaviour
     private static FightMananger instance = null;
 
     static EnemySpawn enemySpawn;
+    Enemy em;
 
+    //턴 슬라이드 바
     public Slider player_TurnSlider;
     public Slider azar_TurnSlider;
     public Slider joey_TurnSlider;
-
+    // 스킬 턴 텍스트
     public TextMeshProUGUI player_turncount_text;
     public TextMeshProUGUI azar_turncount_text;
     public TextMeshProUGUI joey_turncount_text;
-
+    // 스킬 턴 카운트
     public int player_turncount;
     public int azar_turncount;
     public int joey_turncount;
-
+    // 스텟
     public PlayerStat playerStat;
     public AzarStat azarStat;
     public JoeyStat joeyStat;
-
+    // 적들의 턴 슬라이드와 아이콘 이미지
     public Slider[] enemys_TurnSlider;
     public Image[] enemy_Slider_icon;
-
+    // 턴 표기 화살표
     public GameObject[] turn_arrow;
 
     public bool turn_start = false;
 
     public List<GameObject> enemy_gameObjects;
 
-    public GameObject[] gameObjects;
-
     public List<EnemyInfo> enemy_info;
 
     bool info_on = false;
+
+    bool atk_click = false;
 
     private void Awake()
     {
@@ -72,11 +74,11 @@ public class FightMananger : MonoBehaviour
     {
         if (GameManager.Instance.isEnemy_Fight)
         {
-            SliderCount();
             if (!info_on)
             {
                 Enemy_Info_obj();
             }
+            SliderCount();
         }
 
         if(enemy_gameObjects == null)
@@ -136,12 +138,27 @@ public class FightMananger : MonoBehaviour
             enemy_Slider_icon[i].sprite = enemySpawn.enemy_count[i].GetComponent<EnemyInfo>().enemy_slier_icon; // 아이콘 핸들 변경
             enemys_TurnSlider[i].gameObject.SetActive(true); // 적의 수만큼 슬라이더 오브젝트 실행
         }
+
+        for (int i = 0; i < enemy_info.Count; i++) //적이 죽을 시 슬라이드 오브젝트 삭제 및 리스트 제거
+        {
+            if(enemy_info[i].enemyhp <= 0)
+            {
+                enemys_TurnSlider[i].gameObject.SetActive(false);
+                enemy_gameObjects.Remove(enemy_gameObjects[i]);
+                enemy_info.Remove(enemy_info[i]);
+            }
+            else
+            {
+
+            }
+        }
         
         if (!turn_start)
         {
             player_TurnSlider.value -= Time.deltaTime * 10 * playerStat.speed;
             azar_TurnSlider.value -= Time.deltaTime * 10 * azarStat.speed;
             joey_TurnSlider.value -= Time.deltaTime * 10 * joeyStat.speed;
+
             for (int i = 0; i < enemySpawn.enemy_count.Count; i++)
             {
                 enemys_TurnSlider[i].value -= Time.deltaTime * 10 * enemycount[i];
@@ -154,6 +171,7 @@ public class FightMananger : MonoBehaviour
                         case 0:
                             if (playerStat.hp <= 0)
                             {
+                                player_TurnSlider.gameObject.SetActive(false);
                                 azarStat.hp += -enemystr[i] + azarStat.def;
                             }
                             else
@@ -165,6 +183,7 @@ public class FightMananger : MonoBehaviour
                         case 1:
                             if(azarStat.hp <= 0)
                             {
+                                azar_TurnSlider.gameObject.SetActive(false);
                                 joeyStat.hp += -enemystr[i] + joeyStat.def;
                             }
                             else
@@ -176,6 +195,7 @@ public class FightMananger : MonoBehaviour
                         case 2:
                             if(joeyStat.hp <= 0)
                             {
+                                joey_TurnSlider.gameObject.SetActive(false);
                                 playerStat.hp += -enemystr[i] + playerStat.def;
                             }
                             else
@@ -222,13 +242,13 @@ public class FightMananger : MonoBehaviour
     {
         if(azar_TurnSlider.value <= 0 && azar_turncount == 0)
         {
-            for(int i = 0; i < enemySpawn.enemy_count.Count; i++)
+            for(int i = 0; i < enemy_info.Count; i++)
             {
                 enemy_info[i].enemyhp += -azarStat.str + enemy_info[i].enemydef;
             }
             turn_start = false;
             azar_TurnSlider.value = 99.99f;
-            azar_turncount = 2;
+            azar_turncount = 0;
             turn_arrow[1].SetActive(false);
         }
     }
@@ -283,6 +303,11 @@ public class FightMananger : MonoBehaviour
     {
         if (player_TurnSlider.value <= 0 && player_turncount == 0)
         {
+            for (int i = 0; i < enemySpawn.enemy_count.Count; i++)
+            {
+                enemy_info[i].enemyhp += -playerStat.str + enemy_info[i].enemydef;
+                enemys_TurnSlider[i].value += 10;
+            }
             turn_start = false;
             player_TurnSlider.value = 99.97f;
             player_turncount = 2;
