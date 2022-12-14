@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1165586104584746422}
   - component: {fileID: 7200295686515448632}
   - component: {fileID: 5129578692077333490}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 4418467258529563116}
   - component: {fileID: 6182145239539977663}
   - component: {fileID: 8729038004070100281}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 652724279758780273}
   - component: {fileID: 8880343124439666962}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -316,9 +316,10 @@ GameObject:
   - component: {fileID: 6324180318328781921}
   - component: {fileID: 6324180318328781920}
   - component: {fileID: -6937153794367454786}
-  m_Layer: 5
+  - component: {fileID: 3684023616293537892}
+  m_Layer: 6
   m_Name: Horse
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -394,15 +395,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6721d1eadc772954e9b6e5b4232eebc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyhp: 27
+  enemyhp: 54
   enemystr: 9
   enemyspd: 11
   enemydef: 6
-  enemymaxhp: 27
+  enemymaxhp: 54
   isAtk: 0
   enemy_slider: {fileID: 8880343124439666962}
   enemy_hp_text: {fileID: 8729038004070100281}
   enemy_slier_icon: {fileID: 21300000, guid: 85d98280a359d954e93b93f77fb33d3f, type: 3}
+--- !u!61 &3684023616293537892
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6324180318328781934}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.95036316, y: -0.20379639}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 447.59, y: 541.6881}
+  m_EdgeRadius: 0
 --- !u!1 &8733962285379310788
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,7 +441,7 @@ GameObject:
   - component: {fileID: 2059703101625814031}
   - component: {fileID: 3488145812644960159}
   - component: {fileID: 510355396923317342}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -488,7 +515,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2629899634415815861}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}

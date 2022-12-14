@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using TMPro;
 
 public class FightMananger : MonoBehaviour
@@ -41,7 +42,19 @@ public class FightMananger : MonoBehaviour
 
     bool info_on = false;
 
-    bool atk_click = false;
+    bool player_atk_click = false;
+    bool azar_atk_click = false;
+    bool joey_atk_click = false;
+
+    public LayerMask monster_lay;
+
+    //public GraphicRaycaster gr;
+
+    [SerializeField] private GameObject canvas;
+    private GraphicRaycaster m_Raycaster;
+    private PointerEventData m_PointerEventData;
+    private EventSystem m_EventSystem;
+    public GameObject atk_panel;
 
     private void Awake()
     {
@@ -56,6 +69,9 @@ public class FightMananger : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        m_Raycaster = canvas.GetComponent<GraphicRaycaster>();
+        m_EventSystem = GetComponent<EventSystem>();
     }
 
     public static FightMananger Instance
@@ -81,7 +97,7 @@ public class FightMananger : MonoBehaviour
             SliderCount();
         }
 
-        if(enemy_gameObjects == null)
+        if (enemy_gameObjects == null)
         {
             GameManager.Instance.isEnemy_Fight = false;
         }
@@ -115,6 +131,10 @@ public class FightMananger : MonoBehaviour
         {
             joey_turncount_text.text = joey_turncount.ToString();
         }
+
+        Joey_Skill_2_Use();
+        Azar_Skill_2_Use();
+        Player_Skill_2_Use();
     }
 
     void Enemy_Info_obj()
@@ -165,14 +185,21 @@ public class FightMananger : MonoBehaviour
 
                 if(enemys_TurnSlider[i].value <= 0) //적이 속도가 다 되면 공격
                 {
-                    int x = Random.Range(0, 2);
+                    int x = Random.Range(0, 3); //처음 공격대상 지정
                     switch (x)
                     {
                         case 0:
                             if (playerStat.hp <= 0)
                             {
                                 player_TurnSlider.gameObject.SetActive(false);
-                                azarStat.hp += -enemystr[i] + azarStat.def;
+                                if(azarStat.hp >= 0)
+                                {
+                                    azarStat.hp += -enemystr[i] + azarStat.def;
+                                }
+                                else
+                                {
+                                    joeyStat.hp += -enemystr[i] + joeyStat.def;
+                                }
                             }
                             else
                             {
@@ -184,7 +211,14 @@ public class FightMananger : MonoBehaviour
                             if(azarStat.hp <= 0)
                             {
                                 azar_TurnSlider.gameObject.SetActive(false);
-                                joeyStat.hp += -enemystr[i] + joeyStat.def;
+                                if (playerStat.hp >= 0)
+                                {
+                                    playerStat.hp += -enemystr[i] + playerStat.def;
+                                }
+                                else
+                                {
+                                    joeyStat.hp += -enemystr[i] + joeyStat.def;
+                                }
                             }
                             else
                             {
@@ -196,7 +230,14 @@ public class FightMananger : MonoBehaviour
                             if(joeyStat.hp <= 0)
                             {
                                 joey_TurnSlider.gameObject.SetActive(false);
-                                playerStat.hp += -enemystr[i] + playerStat.def;
+                                if (playerStat.hp >= 0)
+                                {
+                                    playerStat.hp += -enemystr[i] + playerStat.def;
+                                }
+                                else
+                                {
+                                    azarStat.hp += -enemystr[i] + azarStat.def;
+                                }
                             }
                             else
                             {
@@ -244,7 +285,7 @@ public class FightMananger : MonoBehaviour
         {
             for(int i = 0; i < enemy_info.Count; i++)
             {
-                enemy_info[i].enemyhp += -azarStat.str + enemy_info[i].enemydef;
+                enemy_info[i].enemyhp += -azarStat.str * 2 + enemy_info[i].enemydef;
             }
             turn_start = false;
             azar_TurnSlider.value = 99.99f;
@@ -257,16 +298,43 @@ public class FightMananger : MonoBehaviour
     {
         if (azar_TurnSlider.value <= 0)
         {
-
+            azar_atk_click = true;
+            atk_panel.SetActive(true);
         }
     }
 
     public void Azar_Skill_2_Use() // 클릭 후 상대 클릭 시
     {
-        turn_arrow[1].SetActive(false);
-        turn_start = false;
-        azar_TurnSlider.value = 99.99f;
-        azar_turncount--;
+        if (azar_atk_click)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                m_PointerEventData = new PointerEventData(m_EventSystem);
+
+                m_PointerEventData.position = Input.mousePosition;
+
+                List<RaycastResult> results = new List<RaycastResult>();
+
+                m_Raycaster.Raycast(m_PointerEventData, results);
+
+                GameObject hitobj = results[0].gameObject;
+                if (hitobj.CompareTag("Monster"))
+                {
+                    hitobj.gameObject.GetComponent<EnemyInfo>().enemyhp += -azarStat.str + hitobj.gameObject.GetComponent<EnemyInfo>().enemydef;
+                    Debug.Log("몬스터 클릭");
+                    atk_panel.SetActive(false);
+                    azar_atk_click = false;
+                    turn_start = false;
+                    azar_TurnSlider.value = 99.99f;
+                    azar_turncount--;
+                    turn_arrow[1].SetActive(false);
+                }
+                else
+                {
+                    Debug.Log("몬스터 안클릭");
+                }
+            }
+        }
     }
 
     public void Joey_Skill_1() // 특별 스킬
@@ -287,16 +355,43 @@ public class FightMananger : MonoBehaviour
     {
         if (joey_TurnSlider.value <= 0)
         {
-
+            joey_atk_click = true;
+            atk_panel.SetActive(true);
         }
     }
 
     public void Joey_Skill_2_Use()
     {
-        turn_start = false;
-        joey_TurnSlider.value = 99.98f;
-        joey_turncount--;
-        turn_arrow[2].SetActive(false);
+        if (joey_atk_click)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                m_PointerEventData = new PointerEventData(m_EventSystem);
+
+                m_PointerEventData.position = Input.mousePosition;
+
+                List<RaycastResult> results = new List<RaycastResult>();
+
+                m_Raycaster.Raycast(m_PointerEventData, results);
+
+                GameObject hitobj = results[0].gameObject;
+                if (hitobj.CompareTag("Monster"))
+                {
+                    hitobj.gameObject.GetComponent<EnemyInfo>().enemyhp -= 10;
+                    Debug.Log("몬스터 클릭");
+                    atk_panel.SetActive(false);
+                    joey_atk_click = false;
+                    turn_start = false;
+                    joey_TurnSlider.value = 99.98f;
+                    joey_turncount--;
+                    turn_arrow[2].SetActive(false);
+                }
+                else
+                {
+                    Debug.Log("몬스터 안클릭");
+                }
+            }
+        }
     }
 
     public void Player_Skill_1() //특별스킬
@@ -306,7 +401,7 @@ public class FightMananger : MonoBehaviour
             for (int i = 0; i < enemySpawn.enemy_count.Count; i++)
             {
                 enemy_info[i].enemyhp += -playerStat.str + enemy_info[i].enemydef;
-                enemys_TurnSlider[i].value += 10;
+                enemys_TurnSlider[i].value += 15;
             }
             turn_start = false;
             player_TurnSlider.value = 99.97f;
@@ -319,15 +414,42 @@ public class FightMananger : MonoBehaviour
     {
         if (player_TurnSlider.value <= 0)
         {
-
+            player_atk_click = true;
+            atk_panel.SetActive(true);
         }
     }
 
     public void Player_Skill_2_Use()
     {
-        turn_start = false;
-        player_TurnSlider.value = 99.97f;
-        player_turncount--;
-        turn_arrow[0].SetActive(false);
+        if (player_atk_click)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                m_PointerEventData = new PointerEventData(m_EventSystem);
+
+                m_PointerEventData.position = Input.mousePosition;
+
+                List<RaycastResult> results = new List<RaycastResult>();
+
+                m_Raycaster.Raycast(m_PointerEventData, results);
+
+                GameObject hitobj = results[0].gameObject;
+                if (hitobj.CompareTag("Monster"))
+                {
+                    hitobj.gameObject.GetComponent<EnemyInfo>().enemyhp += -playerStat.str + hitobj.gameObject.GetComponent<EnemyInfo>().enemydef;
+                    Debug.Log("몬스터 클릭");
+                    atk_panel.SetActive(false);
+                    player_atk_click = false;
+                    turn_start = false;
+                    player_TurnSlider.value = 99.97f;
+                    player_turncount--;
+                    turn_arrow[0].SetActive(false);
+                }
+                else
+                {
+                    Debug.Log("몬스터 안클릭");
+                }
+            }
+        }
     }
 }

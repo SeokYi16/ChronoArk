@@ -15,9 +15,14 @@ public class AzarStat : MonoBehaviour
 
     private void Update()
     {
-        if (hp >= max_hp)
+        if (hp > max_hp)
         {
             hp = max_hp;
+        }
+
+        if (hp <= 0)
+        {
+            hp = 0;
         }
     }
 }

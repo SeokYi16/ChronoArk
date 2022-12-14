@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2247481517082290624}
   - component: {fileID: 2660614568503283777}
   - component: {fileID: 7291472770316438165}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,9 +149,10 @@ GameObject:
   - component: {fileID: 3558050327477902516}
   - component: {fileID: 3558050327477902519}
   - component: {fileID: -6089332059456401294}
-  m_Layer: 5
+  - component: {fileID: -6485918574848328350}
+  m_Layer: 6
   m_Name: Witch
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -227,15 +228,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6721d1eadc772954e9b6e5b4232eebc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyhp: 34
+  enemyhp: 68
   enemystr: 13
   enemyspd: 10
   enemydef: 7
-  enemymaxhp: 34
+  enemymaxhp: 68
   isAtk: 0
   enemy_slider: {fileID: 2695045534517485920}
   enemy_hp_text: {fileID: 7291472770316438165}
   enemy_slier_icon: {fileID: 21300000, guid: eac2edf5d38ed2347841c00a45b5fdb6, type: 3}
+--- !u!61 &-6485918574848328350
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3558050327477902505}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -3.0832672, y: 2.3124695}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 495.23465, y: 688.4638}
+  m_EdgeRadius: 0
 --- !u!1 &4030182913305483249
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,7 +273,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1693904299697894882}
   - component: {fileID: 2695045534517485920}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -336,7 +363,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2919496167895556105}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,7 +402,7 @@ GameObject:
   - component: {fileID: 7649139491620356530}
   - component: {fileID: 4592425283125668443}
   - component: {fileID: 5282805105427165129}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -451,7 +478,7 @@ GameObject:
   - component: {fileID: 8008095513111880981}
   - component: {fileID: 439166286666738567}
   - component: {fileID: 5621675737967175380}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
