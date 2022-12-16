@@ -44,10 +44,16 @@ public class EnemyInfo : MonoBehaviour
         }
     }
 
+    public void Debuff_P()
+    {
+
+    }
+
     public void Monster_Atk()
     {
 
     }
+
     public virtual void MonsterAtk(int monsterstr, int playerdef, int playerhp)
     {
         if(playerdef >= monsterstr)

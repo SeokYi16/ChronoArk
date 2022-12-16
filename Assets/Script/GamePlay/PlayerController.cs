@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D myrigid;
     Animator myani;
     bool isEnemy;
+    Enemy em;
 
     private void Start()
     {
@@ -20,6 +21,19 @@ public class PlayerController : MonoBehaviour
         if (!isEnemy)
         {
             Move();
+        }
+    }
+
+    private void Update()
+    {
+        if (GameManager.Instance.isEnemy_Fight == false)
+        {
+            isEnemy = false;
+            if (em != null)
+            {
+                Debug.Log("½ÇÇà");
+                em.All_Dead_Enemy();
+            }
         }
     }
 
@@ -59,6 +73,7 @@ public class PlayerController : MonoBehaviour
         {
             GameManager.Instance.Enemy_Panel();
             isEnemy = true;
+            em = collision.gameObject.GetComponent<Enemy>();
         }
     }
 }

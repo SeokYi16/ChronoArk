@@ -46,10 +46,6 @@ public class FightMananger : MonoBehaviour
     bool azar_atk_click = false;
     bool joey_atk_click = false;
 
-    public LayerMask monster_lay;
-
-    //public GraphicRaycaster gr;
-
     [SerializeField] private GameObject canvas;
     private GraphicRaycaster m_Raycaster;
     private PointerEventData m_PointerEventData;
@@ -135,6 +131,15 @@ public class FightMananger : MonoBehaviour
         Joey_Skill_2_Use();
         Azar_Skill_2_Use();
         Player_Skill_2_Use();
+
+        if(enemy_gameObjects.Count == 0)
+        {
+            GameManager.Instance.Enemy_Panel_Close();
+            info_on = false;
+            azar_TurnSlider.value = 99.99f;
+            joey_TurnSlider.value = 99.98f;
+            player_TurnSlider.value = 99.97f;
+        }
     }
 
     void Enemy_Info_obj()
@@ -150,14 +155,6 @@ public class FightMananger : MonoBehaviour
     {
         int[] enemycount = new int[enemySpawn.enemy_count.Count];
         int[] enemystr = new int[enemySpawn.enemy_count.Count];
-        
-        for (int i = 0; i < enemySpawn.enemy_count.Count; i++)
-        {
-            enemycount[i] = enemySpawn.enemy_count[i].GetComponent<EnemyInfo>().enemyspd; //적 스피드를 담음
-            enemystr[i] = enemySpawn.enemy_count[i].GetComponent<EnemyInfo>().enemystr; // 적 공격력을 담음
-            enemy_Slider_icon[i].sprite = enemySpawn.enemy_count[i].GetComponent<EnemyInfo>().enemy_slier_icon; // 아이콘 핸들 변경
-            enemys_TurnSlider[i].gameObject.SetActive(true); // 적의 수만큼 슬라이더 오브젝트 실행
-        }
 
         for (int i = 0; i < enemy_info.Count; i++) //적이 죽을 시 슬라이드 오브젝트 삭제 및 리스트 제거
         {
@@ -166,13 +163,22 @@ public class FightMananger : MonoBehaviour
                 enemys_TurnSlider[i].gameObject.SetActive(false);
                 enemy_gameObjects.Remove(enemy_gameObjects[i]);
                 enemy_info.Remove(enemy_info[i]);
+                enemySpawn.enemy_count.Remove(enemySpawn.enemy_count[i]);
             }
             else
             {
 
             }
         }
-        
+
+        for (int i = 0; i < enemy_info.Count; i++)
+        {
+            enemycount[i] = enemySpawn.enemy_count[i].GetComponent<EnemyInfo>().enemyspd; //적 스피드를 담음
+            enemystr[i] = enemySpawn.enemy_count[i].GetComponent<EnemyInfo>().enemystr; // 적 공격력을 담음
+            enemy_Slider_icon[i].sprite = enemySpawn.enemy_count[i].GetComponent<EnemyInfo>().enemy_slier_icon; // 아이콘 핸들 변경
+            enemys_TurnSlider[i].gameObject.SetActive(true); // 적의 수만큼 슬라이더 오브젝트 실행
+        }
+
         if (!turn_start)
         {
             player_TurnSlider.value -= Time.deltaTime * 10 * playerStat.speed;
@@ -343,9 +349,9 @@ public class FightMananger : MonoBehaviour
         {
             turn_start = false;
             joey_TurnSlider.value = 99.98f;
-            playerStat.hp += 5;
-            azarStat.hp += 5;
-            joeyStat.hp += 5;
+            playerStat.hp += joeyStat.str;
+            azarStat.hp += joeyStat.str;
+            joeyStat.hp += joeyStat.str;
             joey_turncount = 3;
             turn_arrow[2].SetActive(false);
         }
@@ -377,7 +383,7 @@ public class FightMananger : MonoBehaviour
                 GameObject hitobj = results[0].gameObject;
                 if (hitobj.CompareTag("Monster"))
                 {
-                    hitobj.gameObject.GetComponent<EnemyInfo>().enemyhp -= 10;
+                    hitobj.gameObject.GetComponent<EnemyInfo>().enemyhp += -joeyStat.str + hitobj.gameObject.GetComponent<EnemyInfo>().enemydef;
                     Debug.Log("몬스터 클릭");
                     atk_panel.SetActive(false);
                     joey_atk_click = false;
@@ -437,6 +443,15 @@ public class FightMananger : MonoBehaviour
                 if (hitobj.CompareTag("Monster"))
                 {
                     hitobj.gameObject.GetComponent<EnemyInfo>().enemyhp += -playerStat.str + hitobj.gameObject.GetComponent<EnemyInfo>().enemydef;
+                    int r = Random.Range(0, 2);
+                    if (r == 0)
+                    {
+                        azar_TurnSlider.value -= 10f;
+                    }
+                    else
+                    {
+                        joey_TurnSlider.value -= 10f;
+                    }
                     Debug.Log("몬스터 클릭");
                     atk_panel.SetActive(false);
                     player_atk_click = false;
