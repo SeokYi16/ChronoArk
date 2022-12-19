@@ -75,5 +75,11 @@ public class PlayerController : MonoBehaviour
             isEnemy = true;
             em = collision.gameObject.GetComponent<Enemy>();
         }
+
+        if (collision.gameObject.tag == "NPC")
+        {
+            TalkManager.Instance.Npc_Rian_Talk();
+            isEnemy = true;
+        }
     }
 }

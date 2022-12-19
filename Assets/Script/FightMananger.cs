@@ -340,6 +340,11 @@ public class FightMananger : MonoBehaviour
                     Debug.Log("몬스터 안클릭");
                 }
             }
+            else if (Input.GetMouseButtonDown(1))
+            {
+                azar_atk_click = false;
+                atk_panel.SetActive(false);
+            }
         }
     }
 
@@ -396,6 +401,11 @@ public class FightMananger : MonoBehaviour
                 {
                     Debug.Log("몬스터 안클릭");
                 }
+            }
+            else if (Input.GetMouseButtonDown(1))
+            {
+                joey_atk_click = false;
+                atk_panel.SetActive(false);
             }
         }
     }
@@ -464,6 +474,11 @@ public class FightMananger : MonoBehaviour
                 {
                     Debug.Log("몬스터 안클릭");
                 }
+            }
+            else if (Input.GetMouseButtonDown(1))
+            {
+                player_atk_click = false;
+                atk_panel.SetActive(false);
             }
         }
     }

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class TalkManager : MonoBehaviour
 {
@@ -9,6 +11,10 @@ public class TalkManager : MonoBehaviour
     List<Dictionary<string, object>> talkData;//대화 데이터
 
     public GameObject talkPanel;
+
+    public TextMeshProUGUI talk_text;
+    public TextMeshProUGUI talk_name_text;
+    public Image[] talk_img;
 
     private void Awake()
     {
@@ -62,4 +68,13 @@ public class TalkManager : MonoBehaviour
     }
 
 
+    public void Npc_Rian_Talk()
+    {
+        talkPanel.SetActive(true);
+
+        if (Input.GetMouseButtonDown(0))
+        {
+
+        }
+    }
 }
