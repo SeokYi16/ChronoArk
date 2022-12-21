@@ -33,19 +33,19 @@ public class FightMananger : MonoBehaviour
     public Image[] enemy_Slider_icon;
     // 턴 표기 화살표
     public GameObject[] turn_arrow;
-
+    //턴이 시작됨을 알림
     public bool turn_start = false;
-
+    //적 오브젝트 받는 그릇
     public List<GameObject> enemy_gameObjects;
 
     public List<EnemyInfo> enemy_info;
-
+    //정보를 받았는지 확인
     bool info_on = false;
-
+    //공격 클릭 확인
     bool player_atk_click = false;
     bool azar_atk_click = false;
     bool joey_atk_click = false;
-
+    //캔버스 레이캐스트 (캔버스에서는 GraphicRaycaster를 사용해야함/ 그 외는 Raycast로 가능)
     [SerializeField] private GameObject canvas;
     private GraphicRaycaster m_Raycaster;
     private PointerEventData m_PointerEventData;
@@ -93,7 +93,7 @@ public class FightMananger : MonoBehaviour
             SliderCount();
         }
 
-        if (enemy_gameObjects == null)
+        if (enemy_gameObjects == null) //적 오브젝트 배열이 없으면 싸움상태 초기화
         {
             GameManager.Instance.isEnemy_Fight = false;
         }
@@ -132,17 +132,17 @@ public class FightMananger : MonoBehaviour
         Azar_Skill_2_Use();
         Player_Skill_2_Use();
 
-        if(enemy_gameObjects.Count == 0)
+        if(enemy_gameObjects.Count == 0) //몬스터 오브젝트 배열이 0개면 실행
         {
-            GameManager.Instance.Enemy_Panel_Close();
-            info_on = false;
-            azar_TurnSlider.value = 99.99f;
+            GameManager.Instance.Enemy_Panel_Close(); //몬스터 패널 닫기
+            info_on = false; //몬스터 정보 담아오기 초기화
+            azar_TurnSlider.value = 99.99f; //턴슬라이드 초기화
             joey_TurnSlider.value = 99.98f;
             player_TurnSlider.value = 99.97f;
         }
     }
 
-    void Enemy_Info_obj()
+    void Enemy_Info_obj() //적 정보 추가
     {
         info_on = true;
         for (int i = 0; i < enemySpawn.enemy_count.Count; i++)
@@ -151,7 +151,7 @@ public class FightMananger : MonoBehaviour
         }
     }
 
-    void SliderCount()
+    void SliderCount() //턴제 적용
     {
         int[] enemycount = new int[enemySpawn.enemy_count.Count];
         int[] enemystr = new int[enemySpawn.enemy_count.Count];
@@ -195,7 +195,7 @@ public class FightMananger : MonoBehaviour
                     switch (x)
                     {
                         case 0:
-                            if (playerStat.hp <= 0)
+                            if (playerStat.hp <= 0) //공격 대상의 체력이 0이면 다음 대상을 찾음
                             {
                                 player_TurnSlider.gameObject.SetActive(false);
                                 if(azarStat.hp >= 0)
@@ -287,7 +287,7 @@ public class FightMananger : MonoBehaviour
 
     public void Azar_Skill_1() // 특별스킬
     {
-        if(azar_TurnSlider.value <= 0 && azar_turncount == 0)
+        if(azar_TurnSlider.value <= 0 && azar_turncount == 0) //턴슬라이드와 스킬 쿨타임이 0일시 공격가능
         {
             for(int i = 0; i < enemy_info.Count; i++)
             {
@@ -311,25 +311,25 @@ public class FightMananger : MonoBehaviour
 
     public void Azar_Skill_2_Use() // 클릭 후 상대 클릭 시
     {
-        if (azar_atk_click)
+        if (azar_atk_click) //한번 클릭 후 대상 클릭 시
         {
             if (Input.GetMouseButtonDown(0))
             {
-                m_PointerEventData = new PointerEventData(m_EventSystem);
+                m_PointerEventData = new PointerEventData(m_EventSystem); //  이벤트 시스템을 담을 변수 선언
 
-                m_PointerEventData.position = Input.mousePosition;
+                m_PointerEventData.position = Input.mousePosition; // 이벤트 시스템의 좌표는 마우스 좌표
 
-                List<RaycastResult> results = new List<RaycastResult>();
+                List<RaycastResult> results = new List<RaycastResult>(); //List에 RaycastRsult를 선언
 
-                m_Raycaster.Raycast(m_PointerEventData, results);
+                m_Raycaster.Raycast(m_PointerEventData, results); //담기는 좌표와 결과를 담음
 
-                GameObject hitobj = results[0].gameObject;
-                if (hitobj.CompareTag("Monster"))
+                GameObject hitobj = results[0].gameObject; //담기는 결과의 게임오브젝트를 담음
+                if (hitobj.CompareTag("Monster")) //그 담긴 오브젝트 태그가 몬스터일시 실행
                 {
                     hitobj.gameObject.GetComponent<EnemyInfo>().enemyhp += -azarStat.str + hitobj.gameObject.GetComponent<EnemyInfo>().enemydef;
                     Debug.Log("몬스터 클릭");
-                    atk_panel.SetActive(false);
-                    azar_atk_click = false;
+                    atk_panel.SetActive(false); //선택 패널 닫기
+                    azar_atk_click = false; //공격 후 턴 초기화
                     turn_start = false;
                     azar_TurnSlider.value = 99.99f;
                     azar_turncount--;
@@ -340,7 +340,7 @@ public class FightMananger : MonoBehaviour
                     Debug.Log("몬스터 안클릭");
                 }
             }
-            else if (Input.GetMouseButtonDown(1))
+            else if (Input.GetMouseButtonDown(1)) //오른쪽 클릭시 공격 취소
             {
                 azar_atk_click = false;
                 atk_panel.SetActive(false);

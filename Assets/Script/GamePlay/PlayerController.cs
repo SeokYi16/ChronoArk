@@ -7,13 +7,14 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 4f;
     Rigidbody2D myrigid;
     Animator myani;
-    bool isEnemy;
+    public bool isEnemy;
     Enemy em;
 
     private void Start()
     {
         myrigid = GetComponent<Rigidbody2D>();
         myani = GetComponent<Animator>();
+        isEnemy = false;
     }
 
     private void FixedUpdate()
@@ -26,14 +27,10 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.Instance.isEnemy_Fight == false)
+        if (em != null)
         {
-            isEnemy = false;
-            if (em != null)
-            {
-                Debug.Log("실행");
-                em.All_Dead_Enemy();
-            }
+            Debug.Log("실행");
+            em.All_Dead_Enemy();
         }
     }
 
@@ -75,10 +72,13 @@ public class PlayerController : MonoBehaviour
             isEnemy = true;
             em = collision.gameObject.GetComponent<Enemy>();
         }
+    }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {//Npc와 대화를 할 경우 움직임 제어
         if (collision.gameObject.tag == "NPC")
         {
-            TalkManager.Instance.Npc_Rian_Talk();
+            TalkManager.Instance.Npc_Rian_Talk();//대화창 열림
             isEnemy = true;
         }
     }

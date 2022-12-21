@@ -16,6 +16,10 @@ public class TalkManager : MonoBehaviour
     public TextMeshProUGUI talk_name_text;
     public Image[] talk_img;
 
+    public int i = 0;
+    //콜라이더 파괴를 위한 오브젝트 선언
+    public GameObject talk_1;
+
     private void Awake()
     {
         if (null == instance)
@@ -43,38 +47,51 @@ public class TalkManager : MonoBehaviour
     }
 
 
-    public int talkNum(int index)
+    public int TextNum(int index)
     {
-        int itemID = int.Parse(talkData[index]["itemID"].ToString());
-        return itemID;
+        int TextNum = int.Parse(talkData[index]["TextNum"].ToString());
+        return TextNum;
     }
 
-    public int talkImg(int index)
+    public int TextImg(int index)
     {
-        int iconNo = int.Parse(talkData[index]["iconNo"].ToString());
-        return iconNo;
+        int TextImg = int.Parse(talkData[index]["TextImg"].ToString());
+        return TextImg;
     }
 
-    public string talkName(int index)
+    public string TextName(int index)
     {
-        string itemType = (string)talkData[index]["itemType"].ToString(); ;
-        return itemType;
+        string TextName = (string)talkData[index]["TextName"].ToString(); ;
+        return TextName;
     }
 
-    public string talkDes(int index)
+    public string TextDesk(int index)
     {
-        string itemType = (string)talkData[index]["itemType"].ToString(); ;
-        return itemType;
+        string TextDesk = (string)talkData[index]["TextDesk"].ToString(); ;
+        return TextDesk;
     }
 
 
     public void Npc_Rian_Talk()
     {
         talkPanel.SetActive(true);
+        talk_name_text.text = TextName(i);//0번부터 나오게 실행
+        talk_text.text = TextDesk(i);
+        i++;
+    }
 
-        if (Input.GetMouseButtonDown(0))
+    public void Npc_Rian_Talking() //버튼 클릭시 다음으로 넘김
+    {
+        if (i <= 5)
         {
-
+            talk_name_text.text = TextName(i);
+            talk_text.text = TextDesk(i);
+            i++;
+        }
+        else if (i == 6)
+        {
+            Destroy(talk_1.gameObject);
+            talkPanel.SetActive(false);
         }
     }
 }

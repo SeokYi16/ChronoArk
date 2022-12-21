@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     private int indexNum;
 
     private FightMananger FM;
-
+    //레벨업 추가 버튼
     public GameObject[] lv_Up_Btn;
     int lv_Up;
 
@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(lv_Up > 0)
+        if(lv_Up > 0) //레벨 스텟 버튼 작동
         {
             lv_Up_Btn[0].SetActive(true);
             lv_Up_Btn[1].SetActive(true);
@@ -123,7 +123,7 @@ public class GameManager : MonoBehaviour
     {
         enemy_panel.SetActive(true);
         isEnemy_Fight = true;
-        lv_Up += 6;
+        lv_Up += 6; //스텟 증가 6추가
         //FM = FindObjectOfType<FightMananger>();
         //FM.FirstTurn(playerstat.speed, azarstat.speed, joeystat.speed); //속도 후 계산방법은?
     }
@@ -132,9 +132,10 @@ public class GameManager : MonoBehaviour
     {
         enemy_panel.SetActive(false);
         isEnemy_Fight = false;
+        FindObjectOfType<PlayerController>().isEnemy = false;
     }
 
-    public void Hp_Lv_Up_Btn()
+    public void Hp_Lv_Up_Btn() //HP레벨 증가 클릭시
     {
         if(indexNum == 0 && lv_Up > 0)
         {
