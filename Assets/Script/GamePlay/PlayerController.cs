@@ -21,7 +21,10 @@ public class PlayerController : MonoBehaviour
     {
         if (!isEnemy)
         {
-            Move();
+            if (!TalkManager.Instance.isTalking)
+            {
+                Move();
+            }
         }
     }
 
@@ -79,7 +82,8 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "NPC")
         {
             TalkManager.Instance.Npc_Rian_Talk();//대화창 열림
-            isEnemy = true;
+            TalkManager.Instance.isTalking = true;
+            TalkManager.Instance.talk_obj = collision.gameObject;
         }
     }
 }

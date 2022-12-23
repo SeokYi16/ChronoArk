@@ -18,7 +18,9 @@ public class TalkManager : MonoBehaviour
 
     public int i = 0;
     //콜라이더 파괴를 위한 오브젝트 선언
-    public GameObject talk_1;
+    public GameObject talk_obj;
+    public bool isTalking;
+    Inventory inventory;
 
     private void Awake()
     {
@@ -32,6 +34,7 @@ public class TalkManager : MonoBehaviour
             Destroy(this.gameObject);
         }
         talkData = CSVReader.Read("TalkData");
+        isTalking = false;
     }
 
     public static TalkManager Instance
@@ -90,8 +93,9 @@ public class TalkManager : MonoBehaviour
         }
         else if (i == 6)
         {
-            Destroy(talk_1.gameObject);
+            Destroy(talk_obj.gameObject);
             talkPanel.SetActive(false);
+            isTalking = false;
         }
     }
 }

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 015c3aa75283cb1459b641df49e7867f, type: 3}
-  m_Name: New Item
+  m_Name: New Item 1
   m_EditorClassIdentifier: 
-  itemName: "\uBE75"
+  itemName: "\uC57D\uCD08"
   itemType: 1
-  itemImage: {fileID: 21300000, guid: e988ca3cdd19765439cd18dee089013f, type: 3}
-  itemDes: "\uBC30\uACE0\uD488\uC744 \uCC44\uC6CC \uCCB4\uB825\uC744 5\uCC44\uC6CC\uC900\uB2E4"
-  hp: 5
+  itemImage: {fileID: 21300000, guid: 33e376e9d1641054592ad50554d89176, type: 3}
+  itemDes: "\uC0C1\uCC98\uB97C \uCE58\uB8CC\uD574 \uCCB4\uB825\uC744 10 \uCC44\uC6CC\uC900\uB2E4"
+  hp: 10
   str: 0
   def: 0
   spd: 0

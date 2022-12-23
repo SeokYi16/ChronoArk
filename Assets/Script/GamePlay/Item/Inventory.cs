@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Inventory : MonoBehaviour
 {
@@ -8,6 +10,8 @@ public class Inventory : MonoBehaviour
 
     [SerializeField]
     private Slot[] slots;
+
+    public TextMeshProUGUI itemDes;
 
     void Awake()
     {
@@ -42,6 +46,30 @@ public class Inventory : MonoBehaviour
 
     public void UseItem(Item _item)
     {
+        if (_item.itemType == Item.ItemType.Equipment) //장착 아이템
+        {
+            
+        }
+        else if(_item.itemType == Item.ItemType.Used) //사용아이템
+        {
 
+        }
+    }
+
+    public void ItemDes_Enter(Item _item)
+    {
+        if(_item = null)
+        {
+            itemDes.text = " ";
+        }
+        else
+        {
+            itemDes.text = _item.itemDes;
+        }
+    }
+
+    public void ItemDes_Exit()
+    {
+        itemDes.text = " ";
     }
 }
