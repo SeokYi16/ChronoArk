@@ -15,6 +15,8 @@ public class TalkManager : MonoBehaviour
     public TextMeshProUGUI talk_text;
     public TextMeshProUGUI talk_name_text;
     public Image[] talk_img;
+    [SerializeField]
+    private Image talking_npc;
 
     public int i = 0;
     //콜라이더 파괴를 위한 오브젝트 선언
