@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8792c741f70e4de4083578743aebcedc
+guid: e08a4feee3dd55b43bc9dede336a83b5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sactx-4096x4096-DXT5-Atlas_Stage2-8983f623 #26026_0
+      name: slash-thin_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 3422
-        width: 760
-        height: 674
+        x: 5
+        y: 188
+        width: 328
+        height: 111
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +130,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 08f1b73c2e83392428ad41d5692ebf49
-      internalID: -967810418
+      spriteID: 1a5f4950d091f8243adc71cb667b6db4
+      internalID: 1348751937
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sactx-4096x4096-DXT5-Atlas_Stage2-8983f623 #26026_1
+      name: slash-thin_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2388
-        width: 1544
-        height: 1029
+        x: 366
+        y: 199
+        width: 284
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,20 +151,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fcf9cf266a32d8e449df7469fc0b90ce
-      internalID: 1349873854
+      spriteID: ae1cb52696e67aa4086d30dc18053fd1
+      internalID: 809454018
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sactx-4096x4096-DXT5-Atlas_Stage2-8983f623 #26026_2
+      name: slash-thin_2
       rect:
         serializedVersion: 2
-        x: 2930
-        y: 3283
-        width: 691
-        height: 521
+        x: 725
+        y: 205
+        width: 262
+        height: 85
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,20 +172,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce8fd67ad0416df40aee71af78ed4f70
-      internalID: 1471211134
+      spriteID: 9627546f2e545234d95790a91855e486
+      internalID: -802124961
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sactx-4096x4096-DXT5-Atlas_Stage2-8983f623 #26026_3
+      name: slash-thin_3
       rect:
         serializedVersion: 2
-        x: 1819
-        y: 0
-        width: 775
-        height: 1921
+        x: 1072
+        y: 202
+        width: 240
+        height: 86
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,20 +193,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c96a42f09e69d3044aaf9a27185ff3ee
-      internalID: -208675040
+      spriteID: 0ab0918133ded54439e996fafd0b4a2b
+      internalID: 1694269003
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sactx-4096x4096-DXT5-Atlas_Stage2-8983f623 #26026_4
+      name: slash-thin_4
       rect:
         serializedVersion: 2
-        x: 2594
-        y: 0
-        width: 1034
-        height: 1155
+        x: 1409
+        y: 199
+        width: 237
+        height: 91
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -214,20 +214,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c380ff2848e580744b376d5d02047e6d
-      internalID: -521164660
+      spriteID: 4900257766313de4caa52865bf55a391
+      internalID: -104575963
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sactx-4096x4096-DXT5-Atlas_Stage2-8983f623 #26026_5
+      name: slash-thin_5
       rect:
         serializedVersion: 2
-        x: 2599
-        y: 1158
-        width: 1020
-        height: 1149
+        x: 1776
+        y: 208
+        width: 187
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -235,71 +235,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccf18fbab3eb9e04b8dccb968f8be3ef
-      internalID: -977428600
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sactx-4096x4096-DXT5-Atlas_Stage2-8983f623 #26026_6
-      rect:
-        serializedVersion: 2
-        x: 3361
-        y: 2308
-        width: 609
-        height: 346
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fc91c05eaf4d0b841bb899524669fddc
-      internalID: 2144499424
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sactx-4096x4096-DXT5-Atlas_Stage2-8983f623 #26026_7
-      rect:
-        serializedVersion: 2
-        x: 2649
-        y: 2314
-        width: 705
-        height: 964
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9937b46f0d6aed14f8b3a4c486c78d1b
-      internalID: -704513170
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sactx-4096x4096-DXT5-Atlas_Stage2-8983f623 #26026_8
-      rect:
-        serializedVersion: 2
-        x: 1544
-        y: 2383
-        width: 1098
-        height: 959
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7ba38544696215f45af5fd61172e6ac4
-      internalID: 1292448669
+      spriteID: a13ba09e800513e47ade484d992f87f0
+      internalID: 834096040
       vertices: []
       indices: 
       edges: []
@@ -315,15 +252,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      sactx-4096x4096-DXT5-Atlas_Stage2-8983f623 #26026_7: -704513170
-      sactx-4096x4096-DXT5-Atlas_Stage2-8983f623 #26026_1: 1349873854
-      sactx-4096x4096-DXT5-Atlas_Stage2-8983f623 #26026_8: 1292448669
-      sactx-4096x4096-DXT5-Atlas_Stage2-8983f623 #26026_2: 1471211134
-      sactx-4096x4096-DXT5-Atlas_Stage2-8983f623 #26026_3: -208675040
-      sactx-4096x4096-DXT5-Atlas_Stage2-8983f623 #26026_5: -977428600
-      sactx-4096x4096-DXT5-Atlas_Stage2-8983f623 #26026_0: -967810418
-      sactx-4096x4096-DXT5-Atlas_Stage2-8983f623 #26026_6: 2144499424
-      sactx-4096x4096-DXT5-Atlas_Stage2-8983f623 #26026_4: -521164660
+      slash-thin_5: 834096040
+      slash-thin_3: 1694269003
+      slash-thin_2: -802124961
+      slash-thin_0: 1348751937
+      slash-thin_4: -104575963
+      slash-thin_1: 809454018
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

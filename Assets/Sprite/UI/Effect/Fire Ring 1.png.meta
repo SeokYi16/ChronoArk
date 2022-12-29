@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8792c741f70e4de4083578743aebcedc
+guid: 086f90c0302410447a0934183332d7ad
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sactx-4096x4096-DXT5-Atlas_Stage2-8983f623 #26026_0
+      name: Fire Ring 1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 3422
-        width: 760
-        height: 674
+        x: 66
+        y: 593
+        width: 286
+        height: 378
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +130,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 08f1b73c2e83392428ad41d5692ebf49
-      internalID: -967810418
+      spriteID: 8e1169d920dd0d44ba4b090bcf4faeee
+      internalID: -803545175
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sactx-4096x4096-DXT5-Atlas_Stage2-8983f623 #26026_1
+      name: Fire Ring 1_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2388
-        width: 1544
-        height: 1029
+        x: 463
+        y: 569
+        width: 298
+        height: 438
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,20 +151,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fcf9cf266a32d8e449df7469fc0b90ce
-      internalID: 1349873854
+      spriteID: 9857cb3f886c8174bb997aa49b460951
+      internalID: -1175815997
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sactx-4096x4096-DXT5-Atlas_Stage2-8983f623 #26026_2
+      name: Fire Ring 1_2
       rect:
         serializedVersion: 2
-        x: 2930
-        y: 3283
-        width: 691
-        height: 521
+        x: 898
+        y: 566
+        width: 290
+        height: 430
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,20 +172,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce8fd67ad0416df40aee71af78ed4f70
-      internalID: 1471211134
+      spriteID: 49194b5c0ae405941b1c8c2181993d23
+      internalID: -737239111
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sactx-4096x4096-DXT5-Atlas_Stage2-8983f623 #26026_3
+      name: Fire Ring 1_3
       rect:
         serializedVersion: 2
-        x: 1819
-        y: 0
-        width: 775
-        height: 1921
+        x: 1290
+        y: 560
+        width: 306
+        height: 439
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,20 +193,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c96a42f09e69d3044aaf9a27185ff3ee
-      internalID: -208675040
+      spriteID: 959b33e96afbab74d9f500a9048758f6
+      internalID: -1306543406
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sactx-4096x4096-DXT5-Atlas_Stage2-8983f623 #26026_4
+      name: Fire Ring 1_4
       rect:
         serializedVersion: 2
-        x: 2594
-        y: 0
-        width: 1034
-        height: 1155
+        x: 1671
+        y: 555
+        width: 334
+        height: 447
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -214,20 +214,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c380ff2848e580744b376d5d02047e6d
-      internalID: -521164660
+      spriteID: de3d0f15356de8d43b5542371454ba3a
+      internalID: -338189844
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sactx-4096x4096-DXT5-Atlas_Stage2-8983f623 #26026_5
+      name: Fire Ring 1_5
       rect:
         serializedVersion: 2
-        x: 2599
-        y: 1158
-        width: 1020
-        height: 1149
+        x: 52
+        y: 39
+        width: 320
+        height: 463
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -235,20 +235,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccf18fbab3eb9e04b8dccb968f8be3ef
-      internalID: -977428600
+      spriteID: 84cc41375e1868246b305a917af5b3c1
+      internalID: 219419764
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sactx-4096x4096-DXT5-Atlas_Stage2-8983f623 #26026_6
+      name: Fire Ring 1_6
       rect:
         serializedVersion: 2
-        x: 3361
-        y: 2308
-        width: 609
-        height: 346
+        x: 446
+        y: 47
+        width: 337
+        height: 458
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,20 +256,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc91c05eaf4d0b841bb899524669fddc
-      internalID: 2144499424
+      spriteID: 519b7b42a86fb5141bb6ae37f46900ef
+      internalID: -854454311
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sactx-4096x4096-DXT5-Atlas_Stage2-8983f623 #26026_7
+      name: Fire Ring 1_7
       rect:
         serializedVersion: 2
-        x: 2649
-        y: 2314
-        width: 705
-        height: 964
+        x: 898
+        y: 61
+        width: 298
+        height: 450
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -277,20 +277,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9937b46f0d6aed14f8b3a4c486c78d1b
-      internalID: -704513170
+      spriteID: 4f97fb7a3830964478d4496af7fe7308
+      internalID: -1708172813
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sactx-4096x4096-DXT5-Atlas_Stage2-8983f623 #26026_8
+      name: Fire Ring 1_8
       rect:
         serializedVersion: 2
-        x: 1544
-        y: 2383
-        width: 1098
-        height: 959
+        x: 1298
+        y: 53
+        width: 301
+        height: 447
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -298,8 +298,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ba38544696215f45af5fd61172e6ac4
-      internalID: 1292448669
+      spriteID: 2204ca7b87fd2f146a796b86689c66e5
+      internalID: 1341707722
       vertices: []
       indices: 
       edges: []
@@ -315,15 +315,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      sactx-4096x4096-DXT5-Atlas_Stage2-8983f623 #26026_7: -704513170
-      sactx-4096x4096-DXT5-Atlas_Stage2-8983f623 #26026_1: 1349873854
-      sactx-4096x4096-DXT5-Atlas_Stage2-8983f623 #26026_8: 1292448669
-      sactx-4096x4096-DXT5-Atlas_Stage2-8983f623 #26026_2: 1471211134
-      sactx-4096x4096-DXT5-Atlas_Stage2-8983f623 #26026_3: -208675040
-      sactx-4096x4096-DXT5-Atlas_Stage2-8983f623 #26026_5: -977428600
-      sactx-4096x4096-DXT5-Atlas_Stage2-8983f623 #26026_0: -967810418
-      sactx-4096x4096-DXT5-Atlas_Stage2-8983f623 #26026_6: 2144499424
-      sactx-4096x4096-DXT5-Atlas_Stage2-8983f623 #26026_4: -521164660
+      Fire Ring 1_5: 219419764
+      Fire Ring 1_4: -338189844
+      Fire Ring 1_7: -1708172813
+      Fire Ring 1_8: 1341707722
+      Fire Ring 1_0: -803545175
+      Fire Ring 1_6: -854454311
+      Fire Ring 1_2: -737239111
+      Fire Ring 1_3: -1306543406
+      Fire Ring 1_1: -1175815997
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

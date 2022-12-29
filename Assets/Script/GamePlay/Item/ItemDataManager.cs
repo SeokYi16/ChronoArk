@@ -43,6 +43,11 @@ public class ItemDataManager : MonoBehaviour
         azar_iseq2 = false;
         joey_iseq1 = false;
         joey_iseq2 = false;
+
+        for (int i = 0; i < items.Count; i++)
+        {
+            items[i].itemValue = 0;
+        }
     }
 
     public static ItemDataManager Instance

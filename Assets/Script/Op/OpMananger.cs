@@ -44,6 +44,8 @@ public class OpMananger : MonoBehaviour
     private Image preview_chr_icon;
     [SerializeField]
     private Sprite[] preview_chr_img;
+    [SerializeField]
+    private GameObject startGamebtn;
 
     public void Enter_Start_Btn()
     {
@@ -116,6 +118,12 @@ public class OpMananger : MonoBehaviour
             Select_img_2.sprite = preview_chr_icon.sprite;
             isSelect2 = true;
         }
+
+        if(isSelect1 && isSelect2)
+        {
+            Select_btn.SetActive(false);
+            startGamebtn.SetActive(true);
+        }
     }
 
     public void Unselect_Onclick()
@@ -124,12 +132,22 @@ public class OpMananger : MonoBehaviour
         {
             Select_img_2.sprite = UI_Mask.sprite;
             isSelect2 = false;
+            startGamebtn.SetActive(false);
+            Select_btn.SetActive(true);
+            Unselect_btn.SetActive(true);
         }
         else
         {
             Select_img_1.sprite = UI_Mask.sprite;
             isSelect1 = false;
+            startGamebtn.SetActive(false);
+            Select_btn.SetActive(true);
+            Unselect_btn.SetActive(true);
         }
     }
 
+    public void GameStart_OnClick()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+    }
 }
