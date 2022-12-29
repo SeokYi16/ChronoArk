@@ -11,10 +11,13 @@ public class ItemDataManager : MonoBehaviour
     public List<Item> items;
 
     public int index_num;
-    [SerializeField]
-    public Image eqimg1;
-    [SerializeField]
-    public Image eqimg2;
+
+    public Image lucy_eqimg1;
+    public Image lucy_eqimg2;
+    public Image azar_eqimg1;
+    public Image azar_eqimg2;
+    public Image joey_eqimg1;
+    public Image joey_eqimg2;
 
     public bool lucy_iseq1;
     public bool lucy_iseq2;
@@ -66,20 +69,20 @@ public class ItemDataManager : MonoBehaviour
     {
         if (!lucy_iseq1 && index_num == 0)
         {
-            eqimg1.color = new Color(1, 1, 1, 0);
+            lucy_eqimg1.color = new Color(1, 1, 1, 0);
         }
         else
         {
-            eqimg1.color = new Color(1, 1, 1, 1);
+            lucy_eqimg1.color = new Color(1, 1, 1, 1);
         }
 
         if (!lucy_iseq2 && index_num == 0)
         {
-            eqimg2.color = new Color(1, 1, 1, 0);
+            lucy_eqimg2.color = new Color(1, 1, 1, 0);
         }
         else
         {
-            eqimg2.color = new Color(1, 1, 1, 1);
+            lucy_eqimg2.color = new Color(1, 1, 1, 1);
         }
     }
 
@@ -87,20 +90,20 @@ public class ItemDataManager : MonoBehaviour
     {
         if (!azar_iseq1 && index_num == 1)
         {
-            eqimg1.color = new Color(1, 1, 1, 0);
+            azar_eqimg1.color = new Color(1, 1, 1, 0);
         }
         else
         {
-            eqimg1.color = new Color(1, 1, 1, 1);
+            azar_eqimg1.color = new Color(1, 1, 1, 1);
         }
 
         if (!azar_iseq2 && index_num == 1)
         {
-            eqimg2.color = new Color(1, 1, 1, 0);
+            azar_eqimg2.color = new Color(1, 1, 1, 0);
         }
         else
         {
-            eqimg2.color = new Color(1, 1, 1, 1);
+            azar_eqimg2.color = new Color(1, 1, 1, 1);
         }
     }
 
@@ -108,20 +111,20 @@ public class ItemDataManager : MonoBehaviour
     {
         if (!joey_iseq1 && index_num == 2)
         {
-            eqimg1.color = new Color(1, 1, 1, 0);
+            joey_eqimg1.color = new Color(1, 1, 1, 0);
         }
         else
         {
-            eqimg1.color = new Color(1, 1, 1, 1);
+            joey_eqimg1.color = new Color(1, 1, 1, 1);
         }
 
         if (!joey_iseq2 && index_num == 2)
         {
-            eqimg2.color = new Color(1, 1, 1, 0);
+            joey_eqimg2.color = new Color(1, 1, 1, 0);
         }
         else
         {
-            eqimg2.color = new Color(1, 1, 1, 1);
+            joey_eqimg2.color = new Color(1, 1, 1, 1);
         }
     }
 }

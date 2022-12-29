@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
 
 public class Inventory : MonoBehaviour
 {
@@ -11,15 +12,11 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     private Slot[] slots;
 
+    public Slot[] eqslots;
+
     void Awake()
     {
         FreshSlot();
-    }
-
-    private void Start()
-    {
-        AddItem(ItemDataManager.Instance.items[0]);
-        AddItem(ItemDataManager.Instance.items[6]);
     }
 
     public void FreshSlot()
@@ -35,11 +32,18 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public void RemoveItem(Item _item)
+    {
+        items.Remove(_item);
+        FreshSlot();
+    }
+
     public void AddItem(Item _item)
     {
         if (items.Count < slots.Length)
         {
             items.Add(_item);
+            _item.itemValue++;
             FreshSlot();
         }
         else

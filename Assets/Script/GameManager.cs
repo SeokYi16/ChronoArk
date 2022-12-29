@@ -8,12 +8,9 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager instance = null;
     //캐릭터 스텟 정보
-    [SerializeField]
-    private AzarStat azarstat;
-    [SerializeField]
-    private JoeyStat joeystat;
-    [SerializeField]
-    private PlayerStat playerstat;
+    public AzarStat azarstat;
+    public JoeyStat joeystat;
+    public PlayerStat playerstat;
 
     public Sprite[] info_chr_img;
 
@@ -33,6 +30,13 @@ public class GameManager : MonoBehaviour
     //레벨업 추가 버튼
     public GameObject[] lv_Up_Btn;
     int lv_Up;
+
+    public GameObject lucy_eq1;
+    public GameObject lucy_eq2;
+    public GameObject azar_eq1;
+    public GameObject azar_eq2;
+    public GameObject joey_eq1;
+    public GameObject joey_eq2;
 
     private void Awake()
     {//싱글톤
@@ -80,28 +84,58 @@ public class GameManager : MonoBehaviour
     public void Lucy_info_Click()
     {
         player_info_img.sprite = info_chr_img[0];
+        if (playerstat.hp >= playerstat.max_hp) //체력이 최대면 플레이어 스텟은 최대체력으로
+        {
+            playerstat.hp = playerstat.max_hp;
+        }
         info_Name_text.text = "루 시";
         info_Chr_text.text = "남은 체력 : " + playerstat.hp + "/" + playerstat.max_hp + "\n\n" + "공격력 : " + playerstat.str + "\n\n" + "방어력 : " 
             + playerstat.def + "\n\n" + "속도 : " + playerstat.speed + "\n\n\n" + "사용 가능한 추가 스텟 : " + lv_Up;
         indexNum = 0;
+        lucy_eq1.SetActive(true);
+        lucy_eq2.SetActive(true);
+        azar_eq1.SetActive(false);
+        azar_eq2.SetActive(false);
+        joey_eq1.SetActive(false);
+        joey_eq2.SetActive(false);
     }
 
     public void Azar_info_Click()
     {
         player_info_img.sprite = info_chr_img[1];
+        if (azarstat.hp >= azarstat.max_hp)
+        {
+            azarstat.hp = azarstat.max_hp;
+        }
         info_Name_text.text = "아자르";
         info_Chr_text.text = "남은 체력 : " + azarstat.hp + "/" + azarstat.max_hp + "\n\n" + "공격력 : " + azarstat.str + "\n\n" + "방어력 : " 
             + azarstat.def + "\n\n" + "속도 : " + azarstat.speed + "\n\n\n" + "사용 가능한 추가 스텟 : " + lv_Up;
         indexNum = 1;
+        lucy_eq1.SetActive(false);
+        lucy_eq2.SetActive(false);
+        azar_eq1.SetActive(true);
+        azar_eq2.SetActive(true);
+        joey_eq1.SetActive(false);
+        joey_eq2.SetActive(false);
     }
 
     public void Joey_info_Click()
     {
         player_info_img.sprite = info_chr_img[2];
+        if (joeystat.hp >= joeystat.max_hp)
+        {
+            joeystat.hp = joeystat.max_hp;
+        }
         info_Name_text.text = "조 이";
         info_Chr_text.text = "남은 체력 : " + joeystat.hp + "/" + joeystat.max_hp + "\n\n" + "공격력 : " + joeystat.str + "\n\n" + "방어력 : " 
             + joeystat.def + "\n\n" + "속도 : " + joeystat.speed + "\n\n\n" + "사용 가능한 추가 스텟 : " + lv_Up;
         indexNum = 2;
+        lucy_eq1.SetActive(false);
+        lucy_eq2.SetActive(false);
+        azar_eq1.SetActive(false);
+        azar_eq2.SetActive(false);
+        joey_eq1.SetActive(true);
+        joey_eq2.SetActive(true);
     }
     // 정보창 클릭 시
     public void Player_Info_OnClick()

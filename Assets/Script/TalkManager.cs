@@ -22,7 +22,7 @@ public class TalkManager : MonoBehaviour
     //콜라이더 파괴를 위한 오브젝트 선언
     public GameObject talk_obj;
     public bool isTalking;
-    Inventory inventory;
+    public Inventory inventory;
 
     private void Awake()
     {
@@ -95,6 +95,10 @@ public class TalkManager : MonoBehaviour
         }
         else if (i == 6)
         {
+            inventory.AddItem(ItemDataManager.Instance.items[0]);
+            inventory.AddItem(ItemDataManager.Instance.items[6]);
+            inventory.AddItem(ItemDataManager.Instance.items[7]);
+            inventory.AddItem(ItemDataManager.Instance.items[8]);
             Destroy(talk_obj.gameObject);
             talkPanel.SetActive(false);
             isTalking = false;
