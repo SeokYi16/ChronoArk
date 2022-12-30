@@ -75,7 +75,10 @@ public class Slot : MonoBehaviour
                         }
                         //정보갱신
                         GameManager.Instance.Lucy_info_Click();
-                        itemDes.text = item.itemName + "\n" + item.itemValue + "개" + "\n\n" + item.itemDes;
+                        if(_item.itemValue > 0)
+                        {
+                            itemDes.text = item.itemName + "\n" + item.itemValue + "개" + "\n\n" + item.itemDes;
+                        }
                     }
                     else if (!ItemDataManager.Instance.lucy_iseq2)
                     {
@@ -94,7 +97,10 @@ public class Slot : MonoBehaviour
                         }
                         //정보갱신
                         GameManager.Instance.Lucy_info_Click();
-                        itemDes.text = item.itemName + "\n" + item.itemValue + "개" + "\n\n" + item.itemDes;
+                        if (_item.itemValue > 0)
+                        {
+                            itemDes.text = item.itemName + "\n" + item.itemValue + "개" + "\n\n" + item.itemDes;
+                        }
                     }
                     else
                     {
@@ -120,7 +126,10 @@ public class Slot : MonoBehaviour
                         }
                         //정보갱신
                         GameManager.Instance.Azar_info_Click();
-                        itemDes.text = item.itemName + "\n" + item.itemValue + "개" + "\n\n" + item.itemDes;
+                        if (_item.itemValue > 0)
+                        {
+                            itemDes.text = item.itemName + "\n" + item.itemValue + "개" + "\n\n" + item.itemDes;
+                        }
                     }
                     else if (!ItemDataManager.Instance.azar_iseq2)
                     {
@@ -138,7 +147,10 @@ public class Slot : MonoBehaviour
                             inventory.RemoveItem(_item);
                         }
                         GameManager.Instance.Azar_info_Click();
-                        itemDes.text = item.itemName + "\n" + item.itemValue + "개" + "\n\n" + item.itemDes;
+                        if (_item.itemValue > 0)
+                        {
+                            itemDes.text = item.itemName + "\n" + item.itemValue + "개" + "\n\n" + item.itemDes;
+                        }
                     }
                     else
                     {
@@ -163,7 +175,10 @@ public class Slot : MonoBehaviour
                             inventory.RemoveItem(_item);
                         }
                         GameManager.Instance.Joey_info_Click();
-                        itemDes.text = item.itemName + "\n" + item.itemValue + "개" + "\n\n" + item.itemDes;
+                        if (_item.itemValue > 0)
+                        {
+                            itemDes.text = item.itemName + "\n" + item.itemValue + "개" + "\n\n" + item.itemDes;
+                        }
                     }
                     else if (!ItemDataManager.Instance.joey_iseq2)
                     {
@@ -181,7 +196,10 @@ public class Slot : MonoBehaviour
                             inventory.RemoveItem(_item);
                         }
                         GameManager.Instance.Joey_info_Click();
-                        itemDes.text = item.itemName + "\n" + item.itemValue + "개" + "\n\n" + item.itemDes;
+                        if (_item.itemValue > 0)
+                        {
+                            itemDes.text = item.itemName + "\n" + item.itemValue + "개" + "\n\n" + item.itemDes;
+                        }
                     }
                     else
                     {
@@ -202,7 +220,10 @@ public class Slot : MonoBehaviour
                         inventory.RemoveItem(_item);
                     }
                     GameManager.Instance.Lucy_info_Click();
-                    itemDes.text = item.itemName + "\n" + item.itemValue + "개" + "\n\n" + item.itemDes;
+                    if (_item.itemValue > 0)
+                    {
+                        itemDes.text = item.itemName + "\n" + item.itemValue + "개" + "\n\n" + item.itemDes;
+                    }
                 }
                 else if (ItemDataManager.Instance.index_num == 1)
                 {
@@ -214,7 +235,10 @@ public class Slot : MonoBehaviour
                         inventory.RemoveItem(_item);
                     }
                     GameManager.Instance.Azar_info_Click();
-                    itemDes.text = item.itemName + "\n" + item.itemValue + "개" + "\n\n" + item.itemDes;
+                    if (_item.itemValue > 0)
+                    {
+                        itemDes.text = item.itemName + "\n" + item.itemValue + "개" + "\n\n" + item.itemDes;
+                    }
                 }
                 else if (ItemDataManager.Instance.index_num == 2)
                 {
@@ -226,7 +250,10 @@ public class Slot : MonoBehaviour
                         inventory.RemoveItem(_item);
                     }
                     GameManager.Instance.Joey_info_Click();
-                    itemDes.text = item.itemName + "\n" + item.itemValue + "개" + "\n\n" + item.itemDes;
+                    if (_item.itemValue > 0)
+                    {
+                        itemDes.text = item.itemName + "\n" + item.itemValue + "개" + "\n\n" + item.itemDes;
+                    }
                 }
                 else
                 {
