@@ -52,6 +52,18 @@ public class FightMananger : MonoBehaviour
     private EventSystem m_EventSystem;
     public GameObject atk_panel;
 
+    //게임 결과 캔버스
+    [SerializeField]
+    private GameObject win_cvs;
+    [SerializeField]
+    private GameObject over_cvs;
+
+    public bool use_win_cvs = false;
+
+    public GameObject test;
+
+    public Sprite[] hits_ani;
+
     private void Awake()
     {
         enemySpawn = FindObjectOfType<EnemySpawn>();
@@ -139,7 +151,27 @@ public class FightMananger : MonoBehaviour
             azar_TurnSlider.value = 99.99f; //턴슬라이드 초기화
             joey_TurnSlider.value = 99.98f;
             player_TurnSlider.value = 99.97f;
+            if (use_win_cvs)
+            {
+                win_cvs.SetActive(true); //승리 시
+                use_win_cvs = false;
+            }
         }
+
+        if (playerStat.hp <= 0 && azarStat.hp <= 0 && joeyStat.hp <= 0)
+        {
+            over_cvs.SetActive(true); //패배 시
+        }
+    }
+
+    public void WinCvsClose()
+    {
+        win_cvs.SetActive(false);
+    }
+
+    public void OverCvsClose()
+    {
+        over_cvs.SetActive(false);
     }
 
     void Enemy_Info_obj() //적 정보 추가
@@ -160,7 +192,7 @@ public class FightMananger : MonoBehaviour
         {
             if(enemy_info[i].enemyhp <= 0)
             {
-                enemys_TurnSlider[i].gameObject.SetActive(false);
+                enemys_TurnSlider[i +1].gameObject.SetActive(false);
                 enemy_gameObjects.Remove(enemy_gameObjects[i]);
                 enemy_info.Remove(enemy_info[i]);
                 enemySpawn.enemy_count.Remove(enemySpawn.enemy_count[i]);
@@ -181,9 +213,31 @@ public class FightMananger : MonoBehaviour
 
         if (!turn_start)
         {
-            player_TurnSlider.value -= Time.deltaTime * 10 * playerStat.speed;
-            azar_TurnSlider.value -= Time.deltaTime * 10 * azarStat.speed;
-            joey_TurnSlider.value -= Time.deltaTime * 10 * joeyStat.speed;
+            if(playerStat.hp > 0)
+            {
+                player_TurnSlider.value -= Time.deltaTime * 10 * playerStat.speed;
+                player_TurnSlider.gameObject.SetActive(true);
+            }
+            else
+            {
+                player_TurnSlider.gameObject.SetActive(false);
+            }
+            if(azarStat.hp > 0)
+            {
+                azar_TurnSlider.value -= Time.deltaTime * 10 * azarStat.speed;
+            }
+            else
+            {
+                azar_TurnSlider.gameObject.SetActive(false);
+            }
+            if (joeyStat.hp > 0)
+            {
+                joey_TurnSlider.value -= Time.deltaTime * 10 * joeyStat.speed;
+            }
+            else
+            {
+                joey_TurnSlider.gameObject.SetActive(false);
+            }
 
             for (int i = 0; i < enemySpawn.enemy_count.Count; i++)
             {
@@ -334,6 +388,9 @@ public class FightMananger : MonoBehaviour
                     azar_TurnSlider.value = 99.99f;
                     azar_turncount--;
                     turn_arrow[1].SetActive(false);
+
+                    test.transform.position = hitobj.gameObject.transform.position;
+                    Debug.Log(hitobj.gameObject.transform.position);
                 }
                 else
                 {
@@ -344,6 +401,8 @@ public class FightMananger : MonoBehaviour
             {
                 azar_atk_click = false;
                 atk_panel.SetActive(false);
+
+                //여기에 EnemyInfo의 정보의 포지션값을 가져올것!
             }
         }
     }

@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
     //레벨업 추가 버튼
     public GameObject[] lv_Up_Btn;
     int lv_Up;
+    [SerializeField]
+    private TextMeshProUGUI use_lv_up;
 
     public GameObject lucy_eq1;
     public GameObject lucy_eq2;
@@ -79,6 +81,7 @@ public class GameManager : MonoBehaviour
             lv_Up_Btn[2].SetActive(false);
             lv_Up_Btn[3].SetActive(false);
         }
+        use_lv_up.text = "사용가능 스텟 : " + lv_Up;
     }
     //정보 버튼 구현
     public void Lucy_info_Click()
@@ -175,7 +178,7 @@ public class GameManager : MonoBehaviour
             lv_Up--;
             playerstat.max_hp += 3;
             info_Chr_text.text = "남은 체력 : " + playerstat.hp + "/" + playerstat.max_hp + "\n\n" + "공격력 : " + playerstat.str + "\n\n" + "방어력 : "
-    + playerstat.def + "\n\n" + "속도 : " + playerstat.speed;
+    + playerstat.def + "\n\n" + "속도 : " + playerstat.speed + "\n\n\n" + "사용 가능한 추가 스텟 : " + lv_Up;
         }
 
         if (indexNum == 1 && lv_Up > 0)
@@ -183,7 +186,7 @@ public class GameManager : MonoBehaviour
             lv_Up--;
             azarstat.max_hp += 3;
             info_Chr_text.text = "남은 체력 : " + azarstat.hp + "/" + azarstat.max_hp + "\n\n" + "공격력 : " + azarstat.str + "\n\n" + "방어력 : "
-    + azarstat.def + "\n\n" + "속도 : " + azarstat.speed;
+    + azarstat.def + "\n\n" + "속도 : " + azarstat.speed + "\n\n\n" + "사용 가능한 추가 스텟 : " + lv_Up;
         }
 
         if (indexNum == 2 && lv_Up > 0)
@@ -191,7 +194,7 @@ public class GameManager : MonoBehaviour
             lv_Up--;
             joeystat.max_hp += 3;
             info_Chr_text.text = "남은 체력 : " + joeystat.hp + "/" + joeystat.max_hp + "\n\n" + "공격력 : " + joeystat.str + "\n\n" + "방어력 : "
-    + joeystat.def + "\n\n" + "속도 : " + joeystat.speed;
+    + joeystat.def + "\n\n" + "속도 : " + joeystat.speed + "\n\n\n" + "사용 가능한 추가 스텟 : " + lv_Up;
         }
     }
 
@@ -202,7 +205,7 @@ public class GameManager : MonoBehaviour
             lv_Up--;
             playerstat.str += 1;
             info_Chr_text.text = "남은 체력 : " + playerstat.hp + "/" + playerstat.max_hp + "\n\n" + "공격력 : " + playerstat.str + "\n\n" + "방어력 : "
-    + playerstat.def + "\n\n" + "속도 : " + playerstat.speed;
+    + playerstat.def + "\n\n" + "속도 : " + playerstat.speed + "\n\n\n" + "사용 가능한 추가 스텟 : " + lv_Up;
         }
 
         if (indexNum == 1 && lv_Up > 0)
@@ -210,7 +213,7 @@ public class GameManager : MonoBehaviour
             lv_Up--;
             azarstat.str += 1;
             info_Chr_text.text = "남은 체력 : " + azarstat.hp + "/" + azarstat.max_hp + "\n\n" + "공격력 : " + azarstat.str + "\n\n" + "방어력 : "
-    + azarstat.def + "\n\n" + "속도 : " + azarstat.speed;
+    + azarstat.def + "\n\n" + "속도 : " + azarstat.speed + "\n\n\n" + "사용 가능한 추가 스텟 : " + lv_Up;
         }
 
         if (indexNum == 2 && lv_Up > 0)
@@ -218,7 +221,7 @@ public class GameManager : MonoBehaviour
             lv_Up--;
             joeystat.str += 1;
             info_Chr_text.text = "남은 체력 : " + joeystat.hp + "/" + joeystat.max_hp + "\n\n" + "공격력 : " + joeystat.str + "\n\n" + "방어력 : "
-    + joeystat.def + "\n\n" + "속도 : " + joeystat.speed;
+    + joeystat.def + "\n\n" + "속도 : " + joeystat.speed + "\n\n\n" + "사용 가능한 추가 스텟 : " + lv_Up;
         }
     }
 
@@ -229,7 +232,7 @@ public class GameManager : MonoBehaviour
             lv_Up--;
             playerstat.def += 1;
             info_Chr_text.text = "남은 체력 : " + playerstat.hp + "/" + playerstat.max_hp + "\n\n" + "공격력 : " + playerstat.str + "\n\n" + "방어력 : "
-    + playerstat.def + "\n\n" + "속도 : " + playerstat.speed;
+    + playerstat.def + "\n\n" + "속도 : " + playerstat.speed + "\n\n\n" + "사용 가능한 추가 스텟 : " + lv_Up;
         }
 
         if (indexNum == 1 && lv_Up > 0)
@@ -237,7 +240,7 @@ public class GameManager : MonoBehaviour
             lv_Up--;
             azarstat.def += 1;
             info_Chr_text.text = "남은 체력 : " + azarstat.hp + "/" + azarstat.max_hp + "\n\n" + "공격력 : " + azarstat.str + "\n\n" + "방어력 : "
-    + azarstat.def + "\n\n" + "속도 : " + azarstat.speed;
+    + azarstat.def + "\n\n" + "속도 : " + azarstat.speed + "\n\n\n" + "사용 가능한 추가 스텟 : " + lv_Up;
         }
 
         if (indexNum == 2 && lv_Up > 0)
@@ -245,7 +248,7 @@ public class GameManager : MonoBehaviour
             lv_Up--;
             joeystat.def += 1;
             info_Chr_text.text = "남은 체력 : " + joeystat.hp + "/" + joeystat.max_hp + "\n\n" + "공격력 : " + joeystat.str + "\n\n" + "방어력 : "
-    + joeystat.def + "\n\n" + "속도 : " + joeystat.speed;
+    + joeystat.def + "\n\n" + "속도 : " + joeystat.speed + "\n\n\n" + "사용 가능한 추가 스텟 : " + lv_Up;
         }
     }
 
@@ -256,7 +259,7 @@ public class GameManager : MonoBehaviour
             lv_Up--;
             playerstat.speed += 1;
             info_Chr_text.text = "남은 체력 : " + playerstat.hp + "/" + playerstat.max_hp + "\n\n" + "공격력 : " + playerstat.str + "\n\n" + "방어력 : "
-    + playerstat.def + "\n\n" + "속도 : " + playerstat.speed;
+    + playerstat.def + "\n\n" + "속도 : " + playerstat.speed + "\n\n\n" + "사용 가능한 추가 스텟 : " + lv_Up;
         }
 
         if (indexNum == 1 && lv_Up > 0)
@@ -264,7 +267,7 @@ public class GameManager : MonoBehaviour
             lv_Up--;
             azarstat.speed += 1;
             info_Chr_text.text = "남은 체력 : " + azarstat.hp + "/" + azarstat.max_hp + "\n\n" + "공격력 : " + azarstat.str + "\n\n" + "방어력 : "
-+ azarstat.def + "\n\n" + "속도 : " + azarstat.speed;
++ azarstat.def + "\n\n" + "속도 : " + azarstat.speed + "\n\n\n" + "사용 가능한 추가 스텟 : " + lv_Up;
         }
 
         if (indexNum == 2 && lv_Up > 0)
@@ -272,7 +275,7 @@ public class GameManager : MonoBehaviour
             lv_Up--;
             joeystat.speed += 1;
             info_Chr_text.text = "남은 체력 : " + joeystat.hp + "/" + joeystat.max_hp + "\n\n" + "공격력 : " + joeystat.str + "\n\n" + "방어력 : "
-    + joeystat.def + "\n\n" + "속도 : " + joeystat.speed;
+    + joeystat.def + "\n\n" + "속도 : " + joeystat.speed + "\n\n\n" + "사용 가능한 추가 스텟 : " + lv_Up;
         }
     }
 }

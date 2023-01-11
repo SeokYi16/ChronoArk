@@ -79,6 +79,10 @@ public class Slot : MonoBehaviour
                         {
                             itemDes.text = item.itemName + "\n" + item.itemValue + "°³" + "\n\n" + item.itemDes;
                         }
+                        else
+                        {
+                            itemDes.text = null;
+                        }
                     }
                     else if (!ItemDataManager.Instance.lucy_iseq2)
                     {
