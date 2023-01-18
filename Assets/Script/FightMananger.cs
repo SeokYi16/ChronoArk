@@ -64,6 +64,15 @@ public class FightMananger : MonoBehaviour
 
     public Sprite[] hits_ani;
 
+    public GameObject skill_info_obj;
+    public TextMeshProUGUI skill_info_text;
+
+    //이펙트
+    public GameObject[] effs;
+    private bool eff_on = false;
+    public Sprite[] hited_effs;
+
+    public GameObject[] hited_trs;
     private void Awake()
     {
         enemySpawn = FindObjectOfType<EnemySpawn>();
@@ -255,15 +264,24 @@ public class FightMananger : MonoBehaviour
                                 if(azarStat.hp >= 0)
                                 {
                                     azarStat.hp += -enemystr[i] + azarStat.def;
+                                    effs[4].transform.position = hited_trs[1].transform.position;
+                                    effs[4].SetActive(true);
+                                    StartCoroutine("Effect_End");
                                 }
                                 else
                                 {
                                     joeyStat.hp += -enemystr[i] + joeyStat.def;
+                                    effs[4].transform.position = hited_trs[2].transform.position;
+                                    effs[4].SetActive(true);
+                                    StartCoroutine("Effect_End");
                                 }
                             }
                             else
                             {
                                 playerStat.hp += -enemystr[i] + playerStat.def;
+                                effs[4].transform.position = hited_trs[0].transform.position;
+                                effs[4].SetActive(true);
+                                StartCoroutine("Effect_End");
                             }
                             enemys_TurnSlider[i].value = 100;
                             break;
@@ -274,15 +292,24 @@ public class FightMananger : MonoBehaviour
                                 if (playerStat.hp >= 0)
                                 {
                                     playerStat.hp += -enemystr[i] + playerStat.def;
+                                    effs[4].transform.position = hited_trs[0].transform.position;
+                                    effs[4].SetActive(true);
+                                    StartCoroutine("Effect_End");
                                 }
                                 else
                                 {
                                     joeyStat.hp += -enemystr[i] + joeyStat.def;
+                                    effs[4].transform.position = hited_trs[2].transform.position;
+                                    effs[4].SetActive(true);
+                                    StartCoroutine("Effect_End");
                                 }
                             }
                             else
                             {
                                 azarStat.hp += -enemystr[i] + azarStat.def;
+                                effs[4].transform.position = hited_trs[1].transform.position;
+                                effs[4].SetActive(true);
+                                StartCoroutine("Effect_End");
                             }
                             enemys_TurnSlider[i].value = 100;
                             break;
@@ -293,15 +320,24 @@ public class FightMananger : MonoBehaviour
                                 if (playerStat.hp >= 0)
                                 {
                                     playerStat.hp += -enemystr[i] + playerStat.def;
+                                    effs[4].transform.position = hited_trs[0].transform.position;
+                                    effs[4].SetActive(true);
+                                    StartCoroutine("Effect_End");
                                 }
                                 else
                                 {
                                     azarStat.hp += -enemystr[i] + azarStat.def;
+                                    effs[4].transform.position = hited_trs[1].transform.position;
+                                    effs[4].SetActive(true);
+                                    StartCoroutine("Effect_End");
                                 }
                             }
                             else
                             {
                                 joeyStat.hp += -enemystr[i] + joeyStat.def;
+                                effs[4].transform.position = hited_trs[2].transform.position;
+                                effs[4].SetActive(true);
+                                StartCoroutine("Effect_End");
                             }
                             enemys_TurnSlider[i].value = 100;
 
@@ -351,6 +387,8 @@ public class FightMananger : MonoBehaviour
             azar_TurnSlider.value = 99.99f;
             azar_turncount = 0;
             turn_arrow[1].SetActive(false);
+            effs[1].SetActive(true);
+            StartCoroutine("Effect_End");
         }
     }
 
@@ -389,8 +427,11 @@ public class FightMananger : MonoBehaviour
                     azar_turncount--;
                     turn_arrow[1].SetActive(false);
 
-                    test.transform.position = hitobj.gameObject.transform.position;
-                    Debug.Log(hitobj.gameObject.transform.position);
+                    //test.transform.position = hitobj.gameObject.transform.position;
+                    effs[0].transform.position = hitobj.gameObject.transform.position;
+                    effs[0].SetActive(true);
+                    StartCoroutine("Effect_End");
+                    //Debug.Log(hitobj.gameObject.transform.position);
                 }
                 else
                 {
@@ -401,8 +442,6 @@ public class FightMananger : MonoBehaviour
             {
                 azar_atk_click = false;
                 atk_panel.SetActive(false);
-
-                //여기에 EnemyInfo의 정보의 포지션값을 가져올것!
             }
         }
     }
@@ -418,6 +457,8 @@ public class FightMananger : MonoBehaviour
             joeyStat.hp += joeyStat.str;
             joey_turncount = 3;
             turn_arrow[2].SetActive(false);
+            effs[5].SetActive(true);
+            StartCoroutine("Effect_End");
         }
     }
 
@@ -455,6 +496,9 @@ public class FightMananger : MonoBehaviour
                     joey_TurnSlider.value = 99.98f;
                     joey_turncount--;
                     turn_arrow[2].SetActive(false);
+                    effs[0].transform.position = hitobj.gameObject.transform.position;
+                    effs[0].SetActive(true);
+                    StartCoroutine("Effect_End");
                 }
                 else
                 {
@@ -528,6 +572,9 @@ public class FightMananger : MonoBehaviour
                     player_TurnSlider.value = 99.97f;
                     player_turncount--;
                     turn_arrow[0].SetActive(false);
+                    effs[3].transform.position = hitobj.gameObject.transform.position;
+                    effs[3].SetActive(true);
+                    StartCoroutine("Effect_End");
                 }
                 else
                 {
@@ -540,5 +587,46 @@ public class FightMananger : MonoBehaviour
                 atk_panel.SetActive(false);
             }
         }
+    }
+    IEnumerator Effect_End()
+    {
+        yield return new WaitForSeconds(0.2f);
+
+        for (int i = 0; i < effs.Length; i++)
+        {
+            effs[i].SetActive(false);
+        }
+    }
+    public void Skill_Info_Open()
+    {
+        skill_info_obj.SetActive(true);
+    }
+    public void Skill_Info_Close()
+    {
+        skill_info_obj.SetActive(false);
+    }
+    public void Player_Skill_1_Info()
+    {
+        skill_info_text.text = "시간 왜곡 \n 모든 적에게 루시의 공격력 만큼 데미지를 주고 적의 턴을 밀어냅니다. \n 쿨타임 2턴";
+    }
+    public void Player_Skill_2_Info()
+    {
+        skill_info_text.text = "앞 당기기 \n 적 한명에게 루시의 공격력 만큼 데미지를 주고 무작위 아군의 턴을 당겨옵니다.";
+    }
+    public void Joey_Skill_1_Info()
+    {
+        skill_info_text.text = "치유 증기 \n 조이의 공격력 만큼 모든 아군의 체력을 회복합니다. \n 쿨타임 3턴";
+    }
+    public void Joey_Skill_2_Info()
+    {
+        skill_info_text.text = "체력 훔치기 \n 적 한명에게 조이의 공격력 만큼 데미지를 주고 체력이 가장 낮은 아군을 회복시킵니다.";
+    }
+    public void Azar_Skill_1_Info()
+    {
+        skill_info_text.text = "일 섬 \n 모든 적에게 아자르의 공격력의 두 배만큼 데미지를 줍니다. \n 쿨타임 3턴";
+    }
+    public void Azar_Skill_2_Info()
+    {
+        skill_info_text.text = "낙 화 \n 적 한명에게 아자르의 공격력만큼 데미지를 줍니다.";
     }
 }
