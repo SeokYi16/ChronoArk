@@ -201,10 +201,10 @@ public class FightMananger : MonoBehaviour
         {
             if(enemy_info[i].enemyhp <= 0)
             {
-                enemys_TurnSlider[i +1].gameObject.SetActive(false);
                 enemy_gameObjects.Remove(enemy_gameObjects[i]);
                 enemy_info.Remove(enemy_info[i]);
                 enemySpawn.enemy_count.Remove(enemySpawn.enemy_count[i]);
+                enemys_TurnSlider[enemy_info.Count].gameObject.SetActive(false);
             }
             else
             {
@@ -212,12 +212,18 @@ public class FightMananger : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < enemy_info.Count; i++)
+        bool isInfoOn = false;
+
+        if (!isInfoOn)
         {
-            enemycount[i] = enemySpawn.enemy_count[i].GetComponent<EnemyInfo>().enemyspd; //적 스피드를 담음
-            enemystr[i] = enemySpawn.enemy_count[i].GetComponent<EnemyInfo>().enemystr; // 적 공격력을 담음
-            enemy_Slider_icon[i].sprite = enemySpawn.enemy_count[i].GetComponent<EnemyInfo>().enemy_slier_icon; // 아이콘 핸들 변경
-            enemys_TurnSlider[i].gameObject.SetActive(true); // 적의 수만큼 슬라이더 오브젝트 실행
+            for (int i = 0; i < enemy_info.Count; i++)
+            {
+                enemycount[i] = enemySpawn.enemy_count[i].GetComponent<EnemyInfo>().enemyspd; //적 스피드를 담음
+                enemystr[i] = enemySpawn.enemy_count[i].GetComponent<EnemyInfo>().enemystr; // 적 공격력을 담음
+                enemy_Slider_icon[i].sprite = enemySpawn.enemy_count[i].GetComponent<EnemyInfo>().enemy_slier_icon; // 아이콘 핸들 변경
+                enemys_TurnSlider[i].gameObject.SetActive(true); // 적의 수만큼 슬라이더 오브젝트 실행
+            }
+            isInfoOn = true;
         }
 
         if (!turn_start)
@@ -339,8 +345,8 @@ public class FightMananger : MonoBehaviour
                                 effs[4].SetActive(true);
                                 StartCoroutine("Effect_End");
                             }
+                            enemy_info[i].GetComponent<EnemyInfo>().Atk();
                             enemys_TurnSlider[i].value = 100;
-
                             //enemy_gameObjects[i].GetComponent<EnemyInfo>().Monster_Atk(); //플레이어를 공격하는 적(다른방법)
                             break;
                     }

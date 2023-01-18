@@ -165,6 +165,7 @@ GameObject:
   - component: {fileID: 4831951982629604097}
   - component: {fileID: -1250283250150096694}
   - component: {fileID: 544294774279816924}
+  - component: {fileID: -1859497420263502464}
   m_Layer: 6
   m_Name: Bombclown
   m_TagString: Monster
@@ -244,6 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyhp: 60
+  enemyhited: 0
   enemystr: 10
   enemyspd: 7
   enemydef: 5
@@ -278,6 +280,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 412.9105, y: 502.87814}
   m_EdgeRadius: 0
+--- !u!95 &-1859497420263502464
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4831951982629604099}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 40188dbf5dbe18844943ad464a1ae216, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6045310579378083108
 GameObject:
   m_ObjectHideFlags: 0

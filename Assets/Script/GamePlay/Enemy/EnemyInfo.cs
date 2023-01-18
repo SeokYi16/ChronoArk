@@ -15,6 +15,7 @@ public class EnemyInfo : MonoBehaviour
 
     //각 적 정보를 입력
     public int enemyhp;
+    public int enemyhited;
     public int enemystr;
     public int enemyspd;
     public int enemydef;
@@ -26,11 +27,13 @@ public class EnemyInfo : MonoBehaviour
 
     public Sprite enemy_slier_icon;
 
-
+    Animator enemy_ani;
     private void Start()
     {   //적 hp = 최대 hp 와 슬라이더 max값을 적 maxhp로 바꿈
         enemyhp = enemymaxhp;
+        enemyhited = enemymaxhp;
         enemy_slider.maxValue = enemymaxhp;
+        enemy_ani = GetComponent<Animator>();
     }
 
     private void Update()
@@ -42,8 +45,21 @@ public class EnemyInfo : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
 
+        if (enemyhp < enemyhited)
+        {
+            Hited();
+            enemyhited = enemyhp;
+        }
+    }
+    public void Hited()
+    {
+        enemy_ani.SetTrigger("isHit");
+    }
+    public void Atk()
+    {
+        enemy_ani.SetTrigger("isAtk");
+    }
     public void Debuff_P()
     {
 

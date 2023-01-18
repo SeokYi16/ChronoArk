@@ -317,6 +317,7 @@ GameObject:
   - component: {fileID: 6324180318328781920}
   - component: {fileID: -6937153794367454786}
   - component: {fileID: 3684023616293537892}
+  - component: {fileID: 1667119051454813594}
   m_Layer: 6
   m_Name: Horse
   m_TagString: Monster
@@ -396,6 +397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyhp: 54
+  enemyhited: 0
   enemystr: 9
   enemyspd: 11
   enemydef: 6
@@ -430,6 +432,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 447.59, y: 541.6881}
   m_EdgeRadius: 0
+--- !u!95 &1667119051454813594
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6324180318328781934}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 40188dbf5dbe18844943ad464a1ae216, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8733962285379310788
 GameObject:
   m_ObjectHideFlags: 0

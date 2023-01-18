@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3636563024799054067}
   - component: {fileID: 1754779026301649700}
   - component: {fileID: -3960842745405726029}
+  - component: {fileID: 272591052734938251}
   m_Layer: 6
   m_Name: Dochi
   m_TagString: Monster
@@ -126,6 +127,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 356.7437, y: 301.6206}
   m_EdgeRadius: 0
+--- !u!95 &272591052734938251
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3636563024799054065}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 40188dbf5dbe18844943ad464a1ae216, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4221745189056982486
 GameObject:
   m_ObjectHideFlags: 0

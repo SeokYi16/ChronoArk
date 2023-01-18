@@ -150,6 +150,7 @@ GameObject:
   - component: {fileID: 1835398753796785898}
   - component: {fileID: 184917298578905853}
   - component: {fileID: -2969155688150586697}
+  - component: {fileID: 3135754346419791342}
   m_Layer: 6
   m_Name: TwoDochi
   m_TagString: Monster
@@ -229,6 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyhp: 40
+  enemyhited: 0
   enemystr: 8
   enemyspd: 5
   enemydef: 4
@@ -263,6 +265,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 346.76364, y: 404.3492}
   m_EdgeRadius: 0
+--- !u!95 &3135754346419791342
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835398753796785896}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 40188dbf5dbe18844943ad464a1ae216, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1896889517398107414
 GameObject:
   m_ObjectHideFlags: 0

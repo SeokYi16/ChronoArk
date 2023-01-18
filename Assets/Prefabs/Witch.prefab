@@ -150,6 +150,7 @@ GameObject:
   - component: {fileID: 3558050327477902519}
   - component: {fileID: -6089332059456401294}
   - component: {fileID: -6485918574848328350}
+  - component: {fileID: 8883380389813712510}
   m_Layer: 6
   m_Name: Witch
   m_TagString: Monster
@@ -229,6 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyhp: 68
+  enemyhited: 0
   enemystr: 13
   enemyspd: 10
   enemydef: 7
@@ -263,6 +265,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 495.23465, y: 688.4638}
   m_EdgeRadius: 0
+--- !u!95 &8883380389813712510
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3558050327477902505}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 40188dbf5dbe18844943ad464a1ae216, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4030182913305483249
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,8 @@ public class PortalStage : MonoBehaviour
     private GameObject playerCam2;
     [SerializeField]
     private GameObject stage2Trs;
+    [SerializeField]
+    private GameObject fadePanel;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -33,6 +35,7 @@ public class PortalStage : MonoBehaviour
 
     public void StageMoveOnClick()
     {
+        fadePanel.SetActive(true);
         playerChr.transform.position = stage2Trs.transform.position;
         playerCam.SetActive(false);
         playerCam2.SetActive(true);
