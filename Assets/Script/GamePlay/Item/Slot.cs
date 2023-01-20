@@ -105,6 +105,10 @@ public class Slot : MonoBehaviour
                         {
                             itemDes.text = item.itemName + "\n" + item.itemValue + "개" + "\n\n" + item.itemDes;
                         }
+                        else
+                        {
+                            itemDes.text = null;
+                        }
                     }
                     else
                     {
@@ -134,6 +138,10 @@ public class Slot : MonoBehaviour
                         {
                             itemDes.text = item.itemName + "\n" + item.itemValue + "개" + "\n\n" + item.itemDes;
                         }
+                        else
+                        {
+                            itemDes.text = null;
+                        }
                     }
                     else if (!ItemDataManager.Instance.azar_iseq2)
                     {
@@ -154,6 +162,10 @@ public class Slot : MonoBehaviour
                         if (_item.itemValue > 0)
                         {
                             itemDes.text = item.itemName + "\n" + item.itemValue + "개" + "\n\n" + item.itemDes;
+                        }
+                        else
+                        {
+                            itemDes.text = null;
                         }
                     }
                     else
@@ -183,6 +195,10 @@ public class Slot : MonoBehaviour
                         {
                             itemDes.text = item.itemName + "\n" + item.itemValue + "개" + "\n\n" + item.itemDes;
                         }
+                        else
+                        {
+                            itemDes.text = null;
+                        }
                     }
                     else if (!ItemDataManager.Instance.joey_iseq2)
                     {
@@ -203,6 +219,10 @@ public class Slot : MonoBehaviour
                         if (_item.itemValue > 0)
                         {
                             itemDes.text = item.itemName + "\n" + item.itemValue + "개" + "\n\n" + item.itemDes;
+                        }
+                        else
+                        {
+                            itemDes.text = null;
                         }
                     }
                     else
@@ -228,6 +248,10 @@ public class Slot : MonoBehaviour
                     {
                         itemDes.text = item.itemName + "\n" + item.itemValue + "개" + "\n\n" + item.itemDes;
                     }
+                    else
+                    {
+                        itemDes.text = null;
+                    }
                 }
                 else if (ItemDataManager.Instance.index_num == 1)
                 {
@@ -243,6 +267,10 @@ public class Slot : MonoBehaviour
                     {
                         itemDes.text = item.itemName + "\n" + item.itemValue + "개" + "\n\n" + item.itemDes;
                     }
+                    else
+                    {
+                        itemDes.text = null;
+                    }
                 }
                 else if (ItemDataManager.Instance.index_num == 2)
                 {
@@ -257,6 +285,10 @@ public class Slot : MonoBehaviour
                     if (_item.itemValue > 0)
                     {
                         itemDes.text = item.itemName + "\n" + item.itemValue + "개" + "\n\n" + item.itemDes;
+                    }
+                    else
+                    {
+                        itemDes.text = null;
                     }
                 }
                 else

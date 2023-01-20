@@ -1,33 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class FadePanel : MonoBehaviour
 {
     [SerializeField]
-    private Image fade_panel;
-    [SerializeField]
     private GameObject fade_panel_obj;
     float timer;
-    float fade_timer = 2f;
+    float fade_timer = 0.5f;
 
     private void OnEnable()
     {
-        timer = 0;
+        timer = 0; //켜질 때 타이머 초기화
     }
     private void Update()
     {
-        if (timer < fade_timer)
-        {
-            fade_panel.color = new Color(0, 0, 0, 1f - timer / fade_timer);
-        }
-
         timer += Time.deltaTime;
 
-        if(timer > 3)
+        if(timer > fade_timer)
         {
-            fade_panel_obj.SetActive(false);
+            fade_panel_obj.SetActive(false); //0.5초후 오브젝트 끄기
         }
     }
 }

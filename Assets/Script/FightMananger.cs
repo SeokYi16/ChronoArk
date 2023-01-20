@@ -10,7 +10,8 @@ public class FightMananger : MonoBehaviour
     private static FightMananger instance = null;
 
     static EnemySpawn enemySpawn;
-    Enemy em;
+
+    public GameObject fade_panel;
 
     //턴 슬라이드 바
     public Slider player_TurnSlider;
@@ -69,28 +70,21 @@ public class FightMananger : MonoBehaviour
 
     //이펙트
     public GameObject[] effs;
-    private bool eff_on = false;
     public Sprite[] hited_effs;
 
     public GameObject[] hited_trs;
     private void Awake()
     {
-        enemySpawn = FindObjectOfType<EnemySpawn>();
-
         if (null == instance)
         {
             instance = this;
-            DontDestroyOnLoad(this.gameObject);
         }
-        else
-        {
-            Destroy(this.gameObject);
-        }
+
+        enemySpawn = FindObjectOfType<EnemySpawn>();
 
         m_Raycaster = canvas.GetComponent<GraphicRaycaster>();
         m_EventSystem = GetComponent<EventSystem>();
     }
-
     public static FightMananger Instance
     {//싱글톤
         get
@@ -110,6 +104,7 @@ public class FightMananger : MonoBehaviour
             if (!info_on)
             {
                 Enemy_Info_obj();
+                fade_panel.gameObject.SetActive(true);
             }
             SliderCount();
         }
@@ -169,6 +164,7 @@ public class FightMananger : MonoBehaviour
 
         if (playerStat.hp <= 0 && azarStat.hp <= 0 && joeyStat.hp <= 0)
         {
+            fade_panel.SetActive(true);
             over_cvs.SetActive(true); //패배 시
         }
     }
@@ -180,7 +176,7 @@ public class FightMananger : MonoBehaviour
 
     public void OverCvsClose()
     {
-        over_cvs.SetActive(false);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 
     void Enemy_Info_obj() //적 정보 추가
@@ -387,7 +383,14 @@ public class FightMananger : MonoBehaviour
         {
             for(int i = 0; i < enemy_info.Count; i++)
             {
-                enemy_info[i].enemyhp += -azarStat.str * 2 + enemy_info[i].enemydef;
+                if (-azarStat.str * 2 + enemy_info[i].enemydef > 0)
+                {
+                    enemy_info[i].enemyhp--; //적의 방어력이 높으면 체력을 1만 깎음
+                }
+                else
+                {
+                    enemy_info[i].enemyhp += -azarStat.str * 2 + enemy_info[i].enemydef;
+                }
             }
             turn_start = false;
             azar_TurnSlider.value = 99.99f;
@@ -424,7 +427,14 @@ public class FightMananger : MonoBehaviour
                 GameObject hitobj = results[0].gameObject; //담기는 결과의 게임오브젝트를 담음
                 if (hitobj.CompareTag("Monster")) //그 담긴 오브젝트 태그가 몬스터일시 실행
                 {
-                    hitobj.gameObject.GetComponent<EnemyInfo>().enemyhp += -azarStat.str + hitobj.gameObject.GetComponent<EnemyInfo>().enemydef;
+                    if (-azarStat.str + hitobj.gameObject.GetComponent<EnemyInfo>().enemydef > 0)
+                    {
+                        hitobj.gameObject.GetComponent<EnemyInfo>().enemyhp--; //적의 방어력이 높으면 체력을 1만 깎음
+                    }
+                    else
+                    {
+                        hitobj.gameObject.GetComponent<EnemyInfo>().enemyhp += -azarStat.str + hitobj.gameObject.GetComponent<EnemyInfo>().enemydef;
+                    }
                     Debug.Log("몬스터 클릭");
                     atk_panel.SetActive(false); //선택 패널 닫기
                     azar_atk_click = false; //공격 후 턴 초기화
@@ -494,7 +504,14 @@ public class FightMananger : MonoBehaviour
                 GameObject hitobj = results[0].gameObject;
                 if (hitobj.CompareTag("Monster"))
                 {
-                    hitobj.gameObject.GetComponent<EnemyInfo>().enemyhp += -joeyStat.str + hitobj.gameObject.GetComponent<EnemyInfo>().enemydef;
+                    if(-joeyStat.str + hitobj.gameObject.GetComponent<EnemyInfo>().enemydef > 0)
+                    {
+                        hitobj.gameObject.GetComponent<EnemyInfo>().enemyhp--; //적의 방어력이 높으면 체력을 1만 
+                    }
+                    else
+                    {
+                        hitobj.gameObject.GetComponent<EnemyInfo>().enemyhp += -joeyStat.str + hitobj.gameObject.GetComponent<EnemyInfo>().enemydef;
+                    }
                     Debug.Log("몬스터 클릭");
                     atk_panel.SetActive(false);
                     joey_atk_click = false;
@@ -525,13 +542,24 @@ public class FightMananger : MonoBehaviour
         {
             for (int i = 0; i < enemySpawn.enemy_count.Count; i++)
             {
-                enemy_info[i].enemyhp += -playerStat.str + enemy_info[i].enemydef;
-                enemys_TurnSlider[i].value += 15;
+                if (-playerStat.str + enemy_info[i].enemydef > 0)
+                {
+                    enemy_info[i].enemyhp--;//적의 방어력이 높으면 체력을 1만 깎음
+                    enemys_TurnSlider[i].value += 15;
+                }
+                else
+                {
+                    enemy_info[i].enemyhp += -playerStat.str + enemy_info[i].enemydef;
+                    enemys_TurnSlider[i].value += 15;
+                }
             }
             turn_start = false;
             player_TurnSlider.value = 99.97f;
             player_turncount = 2;
             turn_arrow[0].SetActive(false);
+            turn_arrow[1].SetActive(false);
+            effs[7].SetActive(true);
+            StartCoroutine("Effect_End");
         }
     }
 
@@ -561,7 +589,15 @@ public class FightMananger : MonoBehaviour
                 GameObject hitobj = results[0].gameObject;
                 if (hitobj.CompareTag("Monster"))
                 {
-                    hitobj.gameObject.GetComponent<EnemyInfo>().enemyhp += -playerStat.str + hitobj.gameObject.GetComponent<EnemyInfo>().enemydef;
+                    if (-playerStat.str + hitobj.gameObject.GetComponent<EnemyInfo>().enemydef > 0)
+                    {
+                        hitobj.gameObject.GetComponent<EnemyInfo>().enemyhp--; //적의 방어력이 높으면 체력을 1만 
+                    }
+                    else
+                    {
+                        hitobj.gameObject.GetComponent<EnemyInfo>().enemyhp += -playerStat.str + hitobj.gameObject.GetComponent<EnemyInfo>().enemydef;
+                    }
+
                     int r = Random.Range(0, 2);
                     if (r == 0)
                     {

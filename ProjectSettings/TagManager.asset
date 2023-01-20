@@ -8,6 +8,7 @@ TagManager:
   - Monster
   - NPC
   - ItemBox
+  - Rest
   layers:
   - Default
   - TransparentFX

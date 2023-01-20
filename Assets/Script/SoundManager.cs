@@ -5,16 +5,12 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     private static SoundManager instance = null;
+
     private void Awake()
     {
         if (null == instance)
         {
             instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else
-        {
-            Destroy(this.gameObject);
         }
     }
     public static SoundManager Instance

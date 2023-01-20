@@ -40,16 +40,17 @@ public class GameManager : MonoBehaviour
     public GameObject joey_eq1;
     public GameObject joey_eq2;
 
+    [SerializeField]
+    private GameObject rest_cvs;
+
+    Vector3 mousepos; //¸¶¿ì½º Æ÷Áö¼Ç
+
+    public Inventory inventory;
     private void Awake()
-    {//½Ì±ÛÅæ
+    {
         if (null == instance)
         {
             instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else
-        {
-            Destroy(this.gameObject);
         }
     }
 
@@ -82,6 +83,31 @@ public class GameManager : MonoBehaviour
             lv_Up_Btn[3].SetActive(false);
         }
         use_lv_up.text = "»ç¿ë°¡´É ½ºÅÝ : " + lv_Up;
+
+        mousepos = Input.mousePosition;
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector2 pos = Camera.main.ScreenToWorldPoint(mousepos);
+
+            RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
+
+            if(hit.collider != null)
+            {
+                int rndx = Random.Range(0, 5);
+                if(hit.collider.tag == "ItemBox")
+                {
+                    inventory.AddItem(ItemDataManager.Instance.items[0]);
+                    hit.collider.enabled = false;
+                    Debug.Log("¾ÆÀÌÅÛÈ¹µæ");
+                }
+                else if(hit.collider.tag == "Rest")
+                {
+                    Debug.Log("ÈÞ½Ä");
+                    rest_cvs.SetActive(true);
+                }
+            }
+        }
     }
     //Á¤º¸ ¹öÆ° ±¸Çö
     public void Lucy_info_Click()

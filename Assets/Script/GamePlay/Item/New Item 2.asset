@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 015c3aa75283cb1459b641df49e7867f, type: 3}
   m_Name: New Item 2
   m_EditorClassIdentifier: 
-  itemName: "\uC57D\uCD08"
+  itemName: "\uD3EC\uC158"
   itemType: 1
   itemImage: {fileID: 21300000, guid: 13619ce6278868b4e9a741f8255f2706, type: 3}
   itemDes: "\uD070 \uC0C1\uCC98\uB97C \uCE58\uB8CC\uD574 \uCCB4\uB825\uC744 20 \uCC44\uC6CC\uC900\uB2E4"
+  itemValue: 0
   hp: 20
   str: 0
   def: 0

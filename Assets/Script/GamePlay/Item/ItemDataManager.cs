@@ -31,12 +31,8 @@ public class ItemDataManager : MonoBehaviour
         if (null == instance)
         {
             instance = this;
-            DontDestroyOnLoad(this.gameObject);
         }
-        else
-        {
-            Destroy(this.gameObject);
-        }
+
         lucy_iseq1 = false;
         lucy_iseq2 = false;
         azar_iseq1 = false;

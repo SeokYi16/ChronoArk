@@ -38,6 +38,6 @@ public class PortalStage : MonoBehaviour
         fadePanel.SetActive(true);
         playerChr.transform.position = stage2Trs.transform.position;
         playerCam.SetActive(false);
-        playerCam2.SetActive(true);
+        playerCam2.SetActive(true); //카메라 범위설정으로 오류가 생김 두개 위치를 설정해 바꿈
     }
 }

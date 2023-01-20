@@ -29,16 +29,10 @@ public class TalkManager : MonoBehaviour
         if (null == instance)
         {
             instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else
-        {
-            Destroy(this.gameObject);
         }
         talkData = CSVReader.Read("TalkData");
         isTalking = false;
     }
-
     public static TalkManager Instance
     {//ΩÃ±€≈Ê
         get
