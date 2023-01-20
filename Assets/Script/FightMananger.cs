@@ -36,6 +36,14 @@ public class FightMananger : MonoBehaviour
     public GameObject[] turn_arrow;
     //턴이 시작됨을 알림
     public bool turn_start = false;
+    //캐릭터 체력 0 일시 이미지 색 변경
+    public Image playerimg;
+    public Image azarimg;
+    public Image joeyimg;
+    //스킬 쿨타임 이미지 색 변경
+    public Image player_skill_cold;
+    public Image azar_skill_cold;
+    public Image joey_skill_cold;
     //적 오브젝트 받는 그릇
     public List<GameObject> enemy_gameObjects;
 
@@ -73,6 +81,8 @@ public class FightMananger : MonoBehaviour
     public Sprite[] hited_effs;
 
     public GameObject[] hited_trs;
+
+    public Animator cvs_ani;
     private void Awake()
     {
         if (null == instance)
@@ -118,30 +128,36 @@ public class FightMananger : MonoBehaviour
         {
             player_turncount = 0;
             player_turncount_text.text = null;
+            player_skill_cold.color = Color.white;
         }
         else
         {
             player_turncount_text.text = player_turncount.ToString();
+            player_skill_cold.color = Color.white / (player_turncount+1);
         }
 
         if (azar_turncount <= 0)
         {
             azar_turncount = 0;
             azar_turncount_text.text = null;
+            azar_skill_cold.color = Color.white;
         }
         else
         {
             azar_turncount_text.text = azar_turncount.ToString();
+            azar_skill_cold.color = Color.white / (azar_turncount+1);
         }
 
         if (joey_turncount <= 0)
         {
             joey_turncount = 0;
             joey_turncount_text.text = null;
+            joey_skill_cold.color = Color.white;
         }
         else
         {
             joey_turncount_text.text = joey_turncount.ToString();
+            joey_skill_cold.color = Color.white / (joey_turncount+1);
         }
 
         Joey_Skill_2_Use();
@@ -168,7 +184,6 @@ public class FightMananger : MonoBehaviour
             over_cvs.SetActive(true); //패배 시
         }
     }
-
     public void WinCvsClose()
     {
         win_cvs.SetActive(false);
@@ -228,26 +243,32 @@ public class FightMananger : MonoBehaviour
             {
                 player_TurnSlider.value -= Time.deltaTime * 10 * playerStat.speed;
                 player_TurnSlider.gameObject.SetActive(true);
+                playerimg.color = Color.white;
             }
             else
             {
                 player_TurnSlider.gameObject.SetActive(false);
+                playerimg.color = Color.red;
             }
             if(azarStat.hp > 0)
             {
                 azar_TurnSlider.value -= Time.deltaTime * 10 * azarStat.speed;
+                azarimg.color = Color.white;
             }
             else
             {
                 azar_TurnSlider.gameObject.SetActive(false);
+                azarimg.color = Color.red;
             }
             if (joeyStat.hp > 0)
             {
                 joey_TurnSlider.value -= Time.deltaTime * 10 * joeyStat.speed;
+                joeyimg.color = Color.white;
             }
             else
             {
                 joey_TurnSlider.gameObject.SetActive(false);
+                joeyimg.color = Color.red;
             }
 
             for (int i = 0; i < enemySpawn.enemy_count.Count; i++)
@@ -265,14 +286,28 @@ public class FightMananger : MonoBehaviour
                                 player_TurnSlider.gameObject.SetActive(false);
                                 if(azarStat.hp >= 0)
                                 {
-                                    azarStat.hp += -enemystr[i] + azarStat.def;
+                                    if(-enemystr[i] + azarStat.def >= 0)
+                                    {
+                                        azarStat.hp--; //방어력이 높다면 hp를 1만 감소
+                                    }
+                                    else
+                                    {
+                                        azarStat.hp += -enemystr[i] + azarStat.def;
+                                    }
                                     effs[4].transform.position = hited_trs[1].transform.position;
                                     effs[4].SetActive(true);
                                     StartCoroutine("Effect_End");
                                 }
                                 else
                                 {
-                                    joeyStat.hp += -enemystr[i] + joeyStat.def;
+                                    if (-enemystr[i] + joeyStat.def >= 0)
+                                    {
+                                        joeyStat.hp--; //방어력이 높다면 hp를 1만 감소
+                                    }
+                                    else
+                                    {
+                                        joeyStat.hp += -enemystr[i] + joeyStat.def;
+                                    }
                                     effs[4].transform.position = hited_trs[2].transform.position;
                                     effs[4].SetActive(true);
                                     StartCoroutine("Effect_End");
@@ -280,7 +315,14 @@ public class FightMananger : MonoBehaviour
                             }
                             else
                             {
-                                playerStat.hp += -enemystr[i] + playerStat.def;
+                                if (-enemystr[i] + playerStat.def >= 0)
+                                {
+                                    playerStat.hp--; //방어력이 높다면 hp를 1만 감소
+                                }
+                                else
+                                {
+                                    playerStat.hp += -enemystr[i] + playerStat.def;
+                                }
                                 effs[4].transform.position = hited_trs[0].transform.position;
                                 effs[4].SetActive(true);
                                 StartCoroutine("Effect_End");
@@ -293,14 +335,28 @@ public class FightMananger : MonoBehaviour
                                 azar_TurnSlider.gameObject.SetActive(false);
                                 if (playerStat.hp >= 0)
                                 {
-                                    playerStat.hp += -enemystr[i] + playerStat.def;
+                                    if (-enemystr[i] + playerStat.def >= 0)
+                                    {
+                                        playerStat.hp--; //방어력이 높다면 hp를 1만 감소
+                                    }
+                                    else
+                                    {
+                                        playerStat.hp += -enemystr[i] + playerStat.def;
+                                    }
                                     effs[4].transform.position = hited_trs[0].transform.position;
                                     effs[4].SetActive(true);
                                     StartCoroutine("Effect_End");
                                 }
                                 else
                                 {
-                                    joeyStat.hp += -enemystr[i] + joeyStat.def;
+                                    if (-enemystr[i] + joeyStat.def >= 0)
+                                    {
+                                        joeyStat.hp--; //방어력이 높다면 hp를 1만 감소
+                                    }
+                                    else
+                                    {
+                                        joeyStat.hp += -enemystr[i] + joeyStat.def;
+                                    }
                                     effs[4].transform.position = hited_trs[2].transform.position;
                                     effs[4].SetActive(true);
                                     StartCoroutine("Effect_End");
@@ -308,7 +364,14 @@ public class FightMananger : MonoBehaviour
                             }
                             else
                             {
-                                azarStat.hp += -enemystr[i] + azarStat.def;
+                                if (-enemystr[i] + azarStat.def >= 0)
+                                {
+                                    azarStat.hp--; //방어력이 높다면 hp를 1만 감소
+                                }
+                                else
+                                {
+                                    azarStat.hp += -enemystr[i] + azarStat.def;
+                                }
                                 effs[4].transform.position = hited_trs[1].transform.position;
                                 effs[4].SetActive(true);
                                 StartCoroutine("Effect_End");
@@ -321,14 +384,28 @@ public class FightMananger : MonoBehaviour
                                 joey_TurnSlider.gameObject.SetActive(false);
                                 if (playerStat.hp >= 0)
                                 {
-                                    playerStat.hp += -enemystr[i] + playerStat.def;
+                                    if (-enemystr[i] + playerStat.def >= 0)
+                                    {
+                                        playerStat.hp--; //방어력이 높다면 hp를 1만 감소
+                                    }
+                                    else
+                                    {
+                                        playerStat.hp += -enemystr[i] + playerStat.def;
+                                    }
                                     effs[4].transform.position = hited_trs[0].transform.position;
                                     effs[4].SetActive(true);
                                     StartCoroutine("Effect_End");
                                 }
                                 else
                                 {
-                                    azarStat.hp += -enemystr[i] + azarStat.def;
+                                    if (-enemystr[i] + azarStat.def >= 0)
+                                    {
+                                        azarStat.hp--; //방어력이 높다면 hp를 1만 감소
+                                    }
+                                    else
+                                    {
+                                        azarStat.hp += -enemystr[i] + azarStat.def;
+                                    }
                                     effs[4].transform.position = hited_trs[1].transform.position;
                                     effs[4].SetActive(true);
                                     StartCoroutine("Effect_End");
@@ -336,11 +413,19 @@ public class FightMananger : MonoBehaviour
                             }
                             else
                             {
-                                joeyStat.hp += -enemystr[i] + joeyStat.def;
+                                if (-enemystr[i] + joeyStat.def >= 0)
+                                {
+                                    joeyStat.hp--; //방어력이 높다면 hp를 1만 감소
+                                }
+                                else
+                                {
+                                    joeyStat.hp += -enemystr[i] + joeyStat.def;
+                                }
                                 effs[4].transform.position = hited_trs[2].transform.position;
                                 effs[4].SetActive(true);
                                 StartCoroutine("Effect_End");
                             }
+                            cvs_ani.SetTrigger("isHit");
                             enemy_info[i].GetComponent<EnemyInfo>().Atk();
                             enemys_TurnSlider[i].value = 100;
                             //enemy_gameObjects[i].GetComponent<EnemyInfo>().Monster_Atk(); //플레이어를 공격하는 적(다른방법)
@@ -393,7 +478,7 @@ public class FightMananger : MonoBehaviour
                 }
             }
             turn_start = false;
-            azar_TurnSlider.value = 99.99f;
+            azar_TurnSlider.value = 99.9f;
             azar_turncount = 0;
             turn_arrow[1].SetActive(false);
             effs[1].SetActive(true);
@@ -439,7 +524,7 @@ public class FightMananger : MonoBehaviour
                     atk_panel.SetActive(false); //선택 패널 닫기
                     azar_atk_click = false; //공격 후 턴 초기화
                     turn_start = false;
-                    azar_TurnSlider.value = 99.99f;
+                    azar_TurnSlider.value = 99.9f;
                     azar_turncount--;
                     turn_arrow[1].SetActive(false);
 
@@ -467,7 +552,7 @@ public class FightMananger : MonoBehaviour
         if (joey_TurnSlider.value <= 0 && joey_turncount == 0)
         {
             turn_start = false;
-            joey_TurnSlider.value = 99.98f;
+            joey_TurnSlider.value = 99.8f;
             playerStat.hp += joeyStat.str;
             azarStat.hp += joeyStat.str;
             joeyStat.hp += joeyStat.str;
@@ -507,16 +592,54 @@ public class FightMananger : MonoBehaviour
                     if(-joeyStat.str + hitobj.gameObject.GetComponent<EnemyInfo>().enemydef > 0)
                     {
                         hitobj.gameObject.GetComponent<EnemyInfo>().enemyhp--; //적의 방어력이 높으면 체력을 1만 
+                        if(joeyStat.hp >= azarStat.hp)
+                        {
+                            if(azarStat.hp >= playerStat.hp)
+                            {
+                                playerStat.hp++;
+                            }
+                            else
+                            {
+                                azarStat.hp++;
+                            }
+                        }
+                        else if(joeyStat.hp >= playerStat.hp)
+                        {
+                            playerStat.hp++;
+                        }
+                        else
+                        {
+                            joeyStat.hp++;
+                        }
                     }
                     else
                     {
+                        if (joeyStat.hp >= azarStat.hp)
+                        {
+                            if (azarStat.hp >= playerStat.hp)
+                            {
+                                playerStat.hp+=3;
+                            }
+                            else
+                            {
+                                azarStat.hp+=3;
+                            }
+                        }
+                        else if (joeyStat.hp >= playerStat.hp)
+                        {
+                            playerStat.hp+=3;
+                        }
+                        else
+                        {
+                            joeyStat.hp+=3;
+                        }
                         hitobj.gameObject.GetComponent<EnemyInfo>().enemyhp += -joeyStat.str + hitobj.gameObject.GetComponent<EnemyInfo>().enemydef;
                     }
                     Debug.Log("몬스터 클릭");
                     atk_panel.SetActive(false);
                     joey_atk_click = false;
                     turn_start = false;
-                    joey_TurnSlider.value = 99.98f;
+                    joey_TurnSlider.value = 99.8f;
                     joey_turncount--;
                     turn_arrow[2].SetActive(false);
                     effs[0].transform.position = hitobj.gameObject.transform.position;
@@ -554,7 +677,7 @@ public class FightMananger : MonoBehaviour
                 }
             }
             turn_start = false;
-            player_TurnSlider.value = 99.97f;
+            player_TurnSlider.value = 99.7f;
             player_turncount = 2;
             turn_arrow[0].SetActive(false);
             turn_arrow[1].SetActive(false);
@@ -611,7 +734,7 @@ public class FightMananger : MonoBehaviour
                     atk_panel.SetActive(false);
                     player_atk_click = false;
                     turn_start = false;
-                    player_TurnSlider.value = 99.97f;
+                    player_TurnSlider.value = 99.7f;
                     player_turncount--;
                     turn_arrow[0].SetActive(false);
                     effs[3].transform.position = hitobj.gameObject.transform.position;

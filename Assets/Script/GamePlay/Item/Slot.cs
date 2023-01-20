@@ -238,6 +238,9 @@ public class Slot : MonoBehaviour
                 {
                     _item.itemValue--;
                     GameManager.Instance.playerstat.hp += _item.hp;
+                    GameManager.Instance.playerstat.str += _item.str;
+                    GameManager.Instance.playerstat.def += _item.def;
+                    GameManager.Instance.playerstat.speed += _item.spd;
                     if (_item.itemValue <= 0)
                     {
                         inventory = FindObjectOfType<Inventory>();
@@ -257,6 +260,9 @@ public class Slot : MonoBehaviour
                 {
                     _item.itemValue--;
                     GameManager.Instance.azarstat.hp += _item.hp;
+                    GameManager.Instance.azarstat.str += _item.str;
+                    GameManager.Instance.azarstat.def += _item.def;
+                    GameManager.Instance.azarstat.speed += _item.spd;
                     if (_item.itemValue <= 0)
                     {
                         inventory = FindObjectOfType<Inventory>();
@@ -276,6 +282,9 @@ public class Slot : MonoBehaviour
                 {
                     _item.itemValue--;
                     GameManager.Instance.joeystat.hp += _item.hp;
+                    GameManager.Instance.joeystat.str += _item.str;
+                    GameManager.Instance.joeystat.def += _item.def;
+                    GameManager.Instance.joeystat.speed += _item.spd;
                     if (_item.itemValue <= 0)
                     {
                         inventory = FindObjectOfType<Inventory>();

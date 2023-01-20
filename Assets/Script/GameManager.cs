@@ -25,8 +25,6 @@ public class GameManager : MonoBehaviour
     private GameObject player_Info;
 
     public int indexNum;
-
-    private FightMananger FM;
     //레벨업 추가 버튼
     public GameObject[] lv_Up_Btn;
     int lv_Up;
@@ -97,13 +95,14 @@ public class GameManager : MonoBehaviour
                 int rndx = Random.Range(0, 5);
                 if(hit.collider.tag == "ItemBox")
                 {
-                    inventory.AddItem(ItemDataManager.Instance.items[0]);
-                    hit.collider.enabled = false;
+                    inventory.AddItem(ItemDataManager.Instance.items[rndx]);
+                    Destroy(hit.collider);
                     Debug.Log("아이템획득");
                 }
                 else if(hit.collider.tag == "Rest")
                 {
                     Debug.Log("휴식");
+                    Destroy(hit.collider);
                     rest_cvs.SetActive(true);
                 }
             }
@@ -203,6 +202,7 @@ public class GameManager : MonoBehaviour
         {
             lv_Up--;
             playerstat.max_hp += 3;
+            playerstat.hp += 3;
             info_Chr_text.text = "남은 체력 : " + playerstat.hp + "/" + playerstat.max_hp + "\n\n" + "공격력 : " + playerstat.str + "\n\n" + "방어력 : "
     + playerstat.def + "\n\n" + "속도 : " + playerstat.speed + "\n\n\n" + "사용 가능한 추가 스텟 : " + lv_Up;
         }
@@ -211,6 +211,7 @@ public class GameManager : MonoBehaviour
         {
             lv_Up--;
             azarstat.max_hp += 3;
+            azarstat.hp += 3;
             info_Chr_text.text = "남은 체력 : " + azarstat.hp + "/" + azarstat.max_hp + "\n\n" + "공격력 : " + azarstat.str + "\n\n" + "방어력 : "
     + azarstat.def + "\n\n" + "속도 : " + azarstat.speed + "\n\n\n" + "사용 가능한 추가 스텟 : " + lv_Up;
         }
@@ -219,6 +220,7 @@ public class GameManager : MonoBehaviour
         {
             lv_Up--;
             joeystat.max_hp += 3;
+            joeystat.hp += 3;
             info_Chr_text.text = "남은 체력 : " + joeystat.hp + "/" + joeystat.max_hp + "\n\n" + "공격력 : " + joeystat.str + "\n\n" + "방어력 : "
     + joeystat.def + "\n\n" + "속도 : " + joeystat.speed + "\n\n\n" + "사용 가능한 추가 스텟 : " + lv_Up;
         }

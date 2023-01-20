@@ -6,8 +6,7 @@ using TMPro;
 
 public class OpMananger : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject panel_Menu;
+    public GameObject panel_Menu;
     [SerializeField]
     private GameObject Start_Menu_Panel;
     [SerializeField]
@@ -46,6 +45,15 @@ public class OpMananger : MonoBehaviour
     private Sprite[] preview_chr_img;
     [SerializeField]
     private GameObject startGamebtn;
+
+    private void Start()
+    {
+        Invoke("Open_Panel",3f);
+    }
+    public void Open_Panel()
+    {
+        panel_Menu.SetActive(true);
+    }
 
     public void Enter_Start_Btn()
     {

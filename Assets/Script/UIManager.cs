@@ -17,13 +17,19 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Slider player_hp_slider;
     [SerializeField]
+    private Slider player_dmg_slider;
+    [SerializeField]
     private Slider player_hp_slider_enemy;
     [SerializeField]
     private Slider azar_hp_slider;
     [SerializeField]
+    private Slider azar_dmg_slider;
+    [SerializeField]
     private Slider azar_hp_slider_enemy;
     [SerializeField]
     private Slider joey_hp_slider;
+    [SerializeField]
+    private Slider joey_dmg_slider;
     [SerializeField]
     private Slider joey_hp_slider_enemy;
     [SerializeField]
@@ -62,5 +68,39 @@ public class UIManager : MonoBehaviour
         joey_hp_slider_enemy.value = joeystat.hp;
         joey_hp_slider_text.text = "HP : " + joeystat.hp + " / " + joeystat.max_hp;
         joey_hp_slider_enemy_text.text = "HP : " + joeystat.hp + " / " + joeystat.max_hp;
+
+
+        player_dmg_slider.maxValue = player_hp_slider.maxValue;
+
+        if (player_hp_slider.value <= player_dmg_slider.value)
+        {
+            player_dmg_slider.value -= Time.deltaTime * 3;
+        }
+        if (player_hp_slider.value > player_dmg_slider.value)
+        {
+            player_dmg_slider.value = player_hp_slider.value;
+        }
+
+        azar_dmg_slider.maxValue = azar_hp_slider.maxValue;
+
+        if (azar_hp_slider.value <= azar_dmg_slider.value)
+        {
+            azar_dmg_slider.value -= Time.deltaTime * 3;
+        }
+        if (azar_hp_slider.value > azar_dmg_slider.value)
+        {
+            azar_dmg_slider.value = azar_hp_slider.value;
+        }
+
+        joey_dmg_slider.maxValue = joey_hp_slider.maxValue;
+
+        if (joey_hp_slider.value <= joey_dmg_slider.value)
+        {
+            joey_dmg_slider.value -= Time.deltaTime * 3;
+        }
+        if (joey_hp_slider.value > joey_dmg_slider.value)
+        {
+            joey_dmg_slider.value = joey_hp_slider.value;
+        }
     }
 }
