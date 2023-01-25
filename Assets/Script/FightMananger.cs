@@ -34,6 +34,7 @@ public class FightMananger : MonoBehaviour
     public Image[] enemy_Slider_icon;
     // 턴 표기 화살표
     public GameObject[] turn_arrow;
+    public GameObject[] turn_f_chr;
     //턴이 시작됨을 알림
     public bool turn_start = false;
     //캐릭터 체력 0 일시 이미지 색 변경
@@ -275,7 +276,9 @@ public class FightMananger : MonoBehaviour
             {
                 enemys_TurnSlider[i].value -= Time.deltaTime * 10 * enemycount[i];
 
-                if(enemys_TurnSlider[i].value <= 0) //적이 속도가 다 되면 공격
+                enemys_TurnSlider[i].transform.localPosition = new Vector3(0, 0, -enemys_TurnSlider[i].value); //슬라이드 바 이미지 순서 결정
+
+                if (enemys_TurnSlider[i].value <= 0) //적이 속도가 다 되면 공격
                 {
                     int x = Random.Range(0, 3); //처음 공격대상 지정
                     switch (x)
@@ -445,14 +448,17 @@ public class FightMananger : MonoBehaviour
             if(player_TurnSlider.value <= 0) //그 캐릭터의 턴이면 화살표 표기
             {
                 turn_arrow[0].SetActive(true);
+                turn_f_chr[0].SetActive(true);
             }
             if (azar_TurnSlider.value <= 0)
             {
                 turn_arrow[1].SetActive(true);
+                turn_f_chr[1].SetActive(true);
             }
             if (joey_TurnSlider.value <= 0)
             {
                 turn_arrow[2].SetActive(true);
+                turn_f_chr[2].SetActive(true);
             }
         }
         else
@@ -460,6 +466,10 @@ public class FightMananger : MonoBehaviour
             turn_start = false;
         }
 
+        //슬라이드 바 이미지 순서 결정
+        player_TurnSlider.transform.localPosition = (new Vector3(0, 0, -player_TurnSlider.value));
+        azar_TurnSlider.transform.localPosition = (new Vector3(0, 0, -azar_TurnSlider.value));
+        joey_TurnSlider.transform.localPosition = (new Vector3(0, 0, -joey_TurnSlider.value));
     }
 
     public void Azar_Skill_1() // 특별스킬
@@ -481,6 +491,7 @@ public class FightMananger : MonoBehaviour
             azar_TurnSlider.value = 99.9f;
             azar_turncount = 0;
             turn_arrow[1].SetActive(false);
+            turn_f_chr[1].SetActive(false);
             effs[1].SetActive(true);
             StartCoroutine("Effect_End");
         }
@@ -527,7 +538,7 @@ public class FightMananger : MonoBehaviour
                     azar_TurnSlider.value = 99.9f;
                     azar_turncount--;
                     turn_arrow[1].SetActive(false);
-
+                    turn_f_chr[1].SetActive(false);
                     //test.transform.position = hitobj.gameObject.transform.position;
                     effs[0].transform.position = hitobj.gameObject.transform.position;
                     effs[0].SetActive(true);
@@ -558,6 +569,7 @@ public class FightMananger : MonoBehaviour
             joeyStat.hp += joeyStat.str;
             joey_turncount = 3;
             turn_arrow[2].SetActive(false);
+            turn_f_chr[2].SetActive(false);
             effs[5].SetActive(true);
             StartCoroutine("Effect_End");
         }
@@ -642,6 +654,7 @@ public class FightMananger : MonoBehaviour
                     joey_TurnSlider.value = 99.8f;
                     joey_turncount--;
                     turn_arrow[2].SetActive(false);
+                    turn_f_chr[2].SetActive(false);
                     effs[0].transform.position = hitobj.gameObject.transform.position;
                     effs[0].SetActive(true);
                     StartCoroutine("Effect_End");
@@ -680,7 +693,7 @@ public class FightMananger : MonoBehaviour
             player_TurnSlider.value = 99.7f;
             player_turncount = 2;
             turn_arrow[0].SetActive(false);
-            turn_arrow[1].SetActive(false);
+            turn_f_chr[0].SetActive(false);
             effs[7].SetActive(true);
             StartCoroutine("Effect_End");
         }
@@ -737,6 +750,7 @@ public class FightMananger : MonoBehaviour
                     player_TurnSlider.value = 99.7f;
                     player_turncount--;
                     turn_arrow[0].SetActive(false);
+                    turn_f_chr[0].SetActive(false);
                     effs[3].transform.position = hitobj.gameObject.transform.position;
                     effs[3].SetActive(true);
                     StartCoroutine("Effect_End");

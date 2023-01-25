@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 4f;
+    public float moveSpeed = 1f;
     Rigidbody2D myrigid;
     Animator myani;
     public bool isEnemy;
@@ -41,13 +41,13 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
         {
-            myrigid.transform.Translate(new Vector2(-6 * Time.deltaTime, 0));
+            myrigid.transform.Translate(new Vector2(-4 * Time.deltaTime, 0));
             gameObject.transform.localScale = new Vector2(-0.5f, 0.5f);
             myani.SetBool("isMove",true);
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            myrigid.transform.Translate(new Vector2(6 * Time.deltaTime, 0));
+            myrigid.transform.Translate(new Vector2(4 * Time.deltaTime, 0));
             gameObject.transform.localScale = new Vector2(0.5f, 0.5f);
             myani.SetBool("isMove", true);
         }
@@ -57,12 +57,12 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.W))
         {
-            myrigid.transform.Translate(new Vector2(0, 6 * Time.deltaTime));
+            myrigid.transform.Translate(new Vector2(0, 4 * Time.deltaTime));
             myani.SetBool("isMove", true);
         }
         else if (Input.GetKey(KeyCode.S))
         {
-            myrigid.transform.Translate(new Vector2(0, -6 * Time.deltaTime));
+            myrigid.transform.Translate(new Vector2(0, -4 * Time.deltaTime));
             myani.SetBool("isMove", true);
         }
     }
