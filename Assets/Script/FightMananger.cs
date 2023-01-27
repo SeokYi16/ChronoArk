@@ -84,6 +84,7 @@ public class FightMananger : MonoBehaviour
     public GameObject[] hited_trs;
 
     public Animator cvs_ani;
+    private bool isend = false;
     private void Awake()
     {
         if (null == instance)
@@ -165,17 +166,22 @@ public class FightMananger : MonoBehaviour
         Azar_Skill_2_Use();
         Player_Skill_2_Use();
 
-        if(enemy_gameObjects.Count == 0) //몬스터 오브젝트 배열이 0개면 실행
+        if(GameManager.Instance.isEnemy_Fight && enemy_gameObjects.Count == 0) //몬스터 오브젝트 배열이 0개면 실행
         {
-            GameManager.Instance.Enemy_Panel_Close(); //몬스터 패널 닫기
-            info_on = false; //몬스터 정보 담아오기 초기화
-            azar_TurnSlider.value = 99.99f; //턴슬라이드 초기화
-            joey_TurnSlider.value = 99.98f;
-            player_TurnSlider.value = 99.97f;
-            if (use_win_cvs)
+            StartCoroutine("Player_Win");
+            if (isend)
             {
-                win_cvs.SetActive(true); //승리 시
-                use_win_cvs = false;
+                azar_TurnSlider.value = 99.99f; //턴슬라이드 초기화
+                joey_TurnSlider.value = 99.98f;
+                player_TurnSlider.value = 99.97f;
+                if (use_win_cvs)
+                {
+                    win_cvs.SetActive(true); //승리 시
+                    use_win_cvs = false;
+                    isend = false;
+                }
+                GameManager.Instance.Enemy_Panel_Close(); //몬스터 패널 닫기
+                info_on = false; //몬스터 정보 담아오기 초기화
             }
         }
 
@@ -184,6 +190,15 @@ public class FightMananger : MonoBehaviour
             fade_panel.SetActive(true);
             over_cvs.SetActive(true); //패배 시
         }
+    }
+    IEnumerator Player_Win()
+    {
+        float timer = 0.5f;
+        Time.timeScale = timer;
+        timer += Time.deltaTime;
+        yield return new WaitForSeconds(1f);
+        isend = true;
+        Time.timeScale = 1f;
     }
     public void WinCvsClose()
     {
@@ -213,6 +228,15 @@ public class FightMananger : MonoBehaviour
         {
             if(enemy_info[i].enemyhp <= 0)
             {
+                int x = Random.Range(0, 2);
+                if(x == 0)
+                {
+                    GameManager.Instance.Azar_Rnd_Enemy_Text();
+                }
+                else
+                {
+                    GameManager.Instance.Joey_Rnd_Enemy_Text();
+                }
                 enemy_gameObjects.Remove(enemy_gameObjects[i]);
                 enemy_info.Remove(enemy_info[i]);
                 enemySpawn.enemy_count.Remove(enemySpawn.enemy_count[i]);
@@ -489,7 +513,7 @@ public class FightMananger : MonoBehaviour
             }
             turn_start = false;
             azar_TurnSlider.value = 99.9f;
-            azar_turncount = 0;
+            azar_turncount = 3;
             turn_arrow[1].SetActive(false);
             turn_f_chr[1].SetActive(false);
             effs[1].SetActive(true);
@@ -567,7 +591,7 @@ public class FightMananger : MonoBehaviour
             playerStat.hp += joeyStat.str;
             azarStat.hp += joeyStat.str;
             joeyStat.hp += joeyStat.str;
-            joey_turncount = 3;
+            joey_turncount = 0; //3턴으로 수정해야함
             turn_arrow[2].SetActive(false);
             turn_f_chr[2].SetActive(false);
             effs[5].SetActive(true);

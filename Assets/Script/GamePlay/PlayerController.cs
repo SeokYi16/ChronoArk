@@ -86,4 +86,18 @@ public class PlayerController : MonoBehaviour
             TalkManager.Instance.talk_obj = collision.gameObject;
         }
     }
+
+    public void Random_Text_Talk()
+    {
+        int x;
+        x = Random.Range(0, 2);
+        if(x == 0)
+        {
+            GameManager.Instance.Azar_Rnd_Text();
+        }
+        else
+        {
+            GameManager.Instance.Joey_Rnd_Text();
+        }
+    }
 }

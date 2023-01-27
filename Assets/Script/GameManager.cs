@@ -44,6 +44,17 @@ public class GameManager : MonoBehaviour
     Vector3 mousepos; //마우스 포지션
 
     public Inventory inventory;
+
+    //랜덤 메시지 출력
+    public GameObject azar_RT_obj;
+    public GameObject joey_RT_obj;
+    public GameObject azar_RET_obj;
+    public GameObject joey_RET_obj;
+
+    public TextMeshProUGUI azar_RT_text;
+    public TextMeshProUGUI joey_RT_text;
+    public TextMeshProUGUI azar_RET_text;
+    public TextMeshProUGUI joey_RET_text;
     private void Awake()
     {
         if (null == instance)
@@ -305,5 +316,90 @@ public class GameManager : MonoBehaviour
             info_Chr_text.text = "남은 체력 : " + joeystat.hp + "/" + joeystat.max_hp + "\n\n" + "공격력 : " + joeystat.str + "\n\n" + "방어력 : "
     + joeystat.def + "\n\n" + "속도 : " + joeystat.speed + "\n\n\n" + "사용 가능한 추가 스텟 : " + lv_Up;
         }
+    }
+
+    public void Azar_Rnd_Text()
+    {
+        int x;
+        x = Random.Range(0, 3);
+        if(x == 0)
+        {
+            azar_RT_text.text = "서둘러 어서 가자";
+        }
+        else if(x == 1)
+        {
+            azar_RT_text.text = "여기는 조금 위험할지도 모르겠군..";
+        }
+        else
+        {
+            azar_RT_text.text = "어쩐지 위험한 느낌이 들어..";
+        }
+        azar_RT_obj.SetActive(true);
+        Invoke("Reset_Rnd_Obj", 2f);
+    }
+    public void Joey_Rnd_Text()
+    {
+        int x;
+        x = Random.Range(0, 3);
+        if (x == 0)
+        {
+            joey_RT_text.text = "뭘 멍때리고 있는거야?";
+        }
+        else if (x == 1)
+        {
+            joey_RT_text.text = "뒤는 나에게 맡기라구";
+        }
+        else
+        {
+            joey_RT_text.text = "좋지않은 느낌인걸..";
+        }
+        joey_RT_obj.SetActive(true);
+        Invoke("Reset_Rnd_Obj", 2f);
+    }
+    public void Azar_Rnd_Enemy_Text()
+    {
+        int x;
+        x = Random.Range(0, 3);
+        if (x == 0)
+        {
+            azar_RET_text.text = "좋아 이대로 가자";
+        }
+        else if (x == 1)
+        {
+            azar_RET_text.text = "이길 수 있겠어..!";
+        }
+        else
+        {
+            azar_RET_text.text = "좋았어!";
+        }
+        azar_RET_obj.SetActive(true);
+        Invoke("Reset_Rnd_Obj", 2f);
+    }
+    public void Joey_Rnd_Enemy_Text()
+    {
+        int x;
+        x = Random.Range(0, 3);
+        if (x == 0)
+        {
+            joey_RT_text.text = "별거 없구만?";
+        }
+        else if (x == 1)
+        {
+            joey_RT_text.text = "좋았어!";
+        }
+        else
+        {
+            joey_RT_text.text = "이봐 이게 다야?";
+        }
+        joey_RET_obj.SetActive(true);
+        Invoke("Reset_Rnd_Obj", 2f);
+    }
+
+    public void Reset_Rnd_Obj()
+    {
+        azar_RT_obj.SetActive(false);
+        joey_RT_obj.SetActive(false);
+        azar_RET_obj.SetActive(false);
+        joey_RET_obj.SetActive(false);
     }
 }

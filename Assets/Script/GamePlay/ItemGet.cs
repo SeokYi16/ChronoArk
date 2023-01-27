@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemGet : MonoBehaviour
 {
@@ -8,11 +9,14 @@ public class ItemGet : MonoBehaviour
     private PolygonCollider2D polygonCollider2D;
     [SerializeField]
     private GameObject itembox_f;
+    [SerializeField]
+    private SpriteRenderer itembox_e;
     private void Update()
     {
         if (polygonCollider2D == null)
         {
             itembox_f.SetActive(false);
+            itembox_e.color = Color.gray;
         }
     }
 
