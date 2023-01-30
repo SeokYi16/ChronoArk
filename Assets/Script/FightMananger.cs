@@ -168,7 +168,7 @@ public class FightMananger : MonoBehaviour
 
         if(GameManager.Instance.isEnemy_Fight && enemy_gameObjects.Count == 0) //몬스터 오브젝트 배열이 0개면 실행
         {
-            StartCoroutine("Player_Win");
+            StartCoroutine("Player_Slow");
             if (isend)
             {
                 azar_TurnSlider.value = 99.99f; //턴슬라이드 초기화
@@ -187,11 +187,12 @@ public class FightMananger : MonoBehaviour
 
         if (playerStat.hp <= 0 && azarStat.hp <= 0 && joeyStat.hp <= 0)
         {
+            StartCoroutine("Player_Slow");
             fade_panel.SetActive(true);
             over_cvs.SetActive(true); //패배 시
         }
     }
-    IEnumerator Player_Win()
+    IEnumerator Player_Slow()
     {
         float timer = 0.5f;
         Time.timeScale = timer;
@@ -208,6 +209,7 @@ public class FightMananger : MonoBehaviour
     public void OverCvsClose()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        isend = false;
     }
 
     void Enemy_Info_obj() //적 정보 추가
@@ -513,7 +515,7 @@ public class FightMananger : MonoBehaviour
             }
             turn_start = false;
             azar_TurnSlider.value = 99.9f;
-            azar_turncount = 3;
+            azar_turncount = 0; // 3턴으로 수정해야함
             turn_arrow[1].SetActive(false);
             turn_f_chr[1].SetActive(false);
             effs[1].SetActive(true);
@@ -591,7 +593,7 @@ public class FightMananger : MonoBehaviour
             playerStat.hp += joeyStat.str;
             azarStat.hp += joeyStat.str;
             joeyStat.hp += joeyStat.str;
-            joey_turncount = 0; //3턴으로 수정해야함
+            joey_turncount = 3;
             turn_arrow[2].SetActive(false);
             turn_f_chr[2].SetActive(false);
             effs[5].SetActive(true);

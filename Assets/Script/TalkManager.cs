@@ -23,6 +23,7 @@ public class TalkManager : MonoBehaviour
     public GameObject talk_obj;
     public bool isTalking;
     public Inventory inventory;
+    public GameObject talk_end_obj;
 
     private void Awake()
     {
@@ -94,6 +95,7 @@ public class TalkManager : MonoBehaviour
             inventory.AddItem(ItemDataManager.Instance.items[7]);
             inventory.AddItem(ItemDataManager.Instance.items[8]);
             Destroy(talk_obj.gameObject);
+            Destroy(talk_end_obj.gameObject);
             talkPanel.SetActive(false);
             isTalking = false;
         }
