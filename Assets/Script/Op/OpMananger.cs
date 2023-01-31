@@ -45,6 +45,8 @@ public class OpMananger : MonoBehaviour
     private Sprite[] preview_chr_img;
     [SerializeField]
     private GameObject startGamebtn;
+    [SerializeField]
+    private GameObject intro_panel;
 
     private void Start()
     {
@@ -155,6 +157,11 @@ public class OpMananger : MonoBehaviour
     }
 
     public void GameStart_OnClick()
+    {
+        intro_panel.SetActive(true);
+    }
+
+    public void Intro_End()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(1);
     }
