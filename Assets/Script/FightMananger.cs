@@ -313,7 +313,7 @@ public class FightMananger : MonoBehaviour
                             if (playerStat.hp <= 0) //공격 대상의 체력이 0이면 다음 대상을 찾음
                             {
                                 player_TurnSlider.gameObject.SetActive(false);
-                                if(azarStat.hp >= 0)
+                                if(azarStat.hp > 0)
                                 {
                                     if(-enemystr[i] + azarStat.def >= 0)
                                     {
@@ -329,14 +329,14 @@ public class FightMananger : MonoBehaviour
                                 }
                                 else
                                 {
-                                    if (-enemystr[i] + joeyStat.def >= 0)
-                                    {
-                                        joeyStat.hp--; //방어력이 높다면 hp를 1만 감소
-                                    }
-                                    else
-                                    {
-                                        joeyStat.hp += -enemystr[i] + joeyStat.def;
-                                    }
+                                        if (-enemystr[i] + joeyStat.def >= 0)
+                                        {
+                                            joeyStat.hp--; //방어력이 높다면 hp를 1만 감소
+                                        }
+                                        else
+                                        {
+                                            joeyStat.hp += -enemystr[i] + joeyStat.def;
+                                        }
                                     effs[4].transform.position = hited_trs[2].transform.position;
                                     effs[4].SetActive(true);
                                     StartCoroutine("Effect_End");
@@ -362,7 +362,7 @@ public class FightMananger : MonoBehaviour
                             if(azarStat.hp <= 0)
                             {
                                 azar_TurnSlider.gameObject.SetActive(false);
-                                if (playerStat.hp >= 0)
+                                if (playerStat.hp > 0)
                                 {
                                     if (-enemystr[i] + playerStat.def >= 0)
                                     {
@@ -411,7 +411,7 @@ public class FightMananger : MonoBehaviour
                             if(joeyStat.hp <= 0)
                             {
                                 joey_TurnSlider.gameObject.SetActive(false);
-                                if (playerStat.hp >= 0)
+                                if (playerStat.hp > 0)
                                 {
                                     if (-enemystr[i] + playerStat.def >= 0)
                                     {
@@ -590,8 +590,14 @@ public class FightMananger : MonoBehaviour
         {
             turn_start = false;
             joey_TurnSlider.value = 99.8f;
-            playerStat.hp += joeyStat.str;
-            azarStat.hp += joeyStat.str;
+            if(playerStat.hp > 0)
+            {
+                playerStat.hp += joeyStat.str;
+            }
+            if(azarStat.hp > 0)
+            {
+                azarStat.hp += joeyStat.str;
+            }
             joeyStat.hp += joeyStat.str;
             joey_turncount = 3;
             turn_arrow[2].SetActive(false);
@@ -632,29 +638,7 @@ public class FightMananger : MonoBehaviour
                         hitobj.gameObject.GetComponent<EnemyInfo>().enemyhp--; //적의 방어력이 높으면 체력을 1만 
                         if(joeyStat.hp >= azarStat.hp)
                         {
-                            if(azarStat.hp >= playerStat.hp)
-                            {
-                                playerStat.hp++;
-                            }
-                            else
-                            {
-                                azarStat.hp++;
-                            }
-                        }
-                        else if(joeyStat.hp >= playerStat.hp)
-                        {
-                            playerStat.hp++;
-                        }
-                        else
-                        {
-                            joeyStat.hp++;
-                        }
-                    }
-                    else
-                    {
-                        if (joeyStat.hp >= azarStat.hp)
-                        {
-                            if (azarStat.hp >= playerStat.hp)
+                            if(azarStat.hp >= playerStat.hp && playerStat.hp > 0)
                             {
                                 playerStat.hp+=3;
                             }
@@ -663,7 +647,29 @@ public class FightMananger : MonoBehaviour
                                 azarStat.hp+=3;
                             }
                         }
-                        else if (joeyStat.hp >= playerStat.hp)
+                        else if(joeyStat.hp >= playerStat.hp && playerStat.hp > 0)
+                        {
+                            playerStat.hp+=3;
+                        }
+                        else
+                        {
+                            joeyStat.hp+=3;
+                        }
+                    }
+                    else
+                    {
+                        if (joeyStat.hp >= azarStat.hp)
+                        {
+                            if (azarStat.hp >= playerStat.hp && playerStat.hp > 0)
+                            {
+                                playerStat.hp+=3;
+                            }
+                            else
+                            {
+                                azarStat.hp+=3;
+                            }
+                        }
+                        else if (joeyStat.hp >= playerStat.hp && playerStat.hp > 0)
                         {
                             playerStat.hp+=3;
                         }

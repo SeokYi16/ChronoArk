@@ -45,30 +45,8 @@ public class Inventory : MonoBehaviour
 
 
             items = items.Distinct().ToList(); //아이템 중복 제거
-            /*
-            List<Item> removeitems = new List<Item>();
-            removeitems = removeitems.Except(items).ToList();
-            */
 
             FreshSlot(); //슬롯 초기화
-;
-            /*
-            for (int i = 0; i < items.Count; i++)
-            {
-                if (items[i].itemName == _item.itemName)
-                {
-                    Debug.Log("같은 아이템");
-                    items.Remove(_item);
-                    _item.itemValue++;
-                }
-                else
-                {
-                    items.Add(_item);
-                    _item.itemValue++;
-                    Debug.Log("다른아이템");
-                }
-            }
-            */
         }
         else
         {

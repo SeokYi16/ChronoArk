@@ -17,6 +17,15 @@ public class PlayerController : MonoBehaviour
         isEnemy = false;
     }
 
+    private void Update()
+    {
+        if (em != null)
+        {
+            Debug.Log("실행");
+            em.All_Dead_Enemy();
+        }
+    }
+
     private void FixedUpdate()
     {
         if (!isEnemy)
@@ -25,15 +34,6 @@ public class PlayerController : MonoBehaviour
             {
                 Move();
             }
-        }
-    }
-
-    private void Update()
-    {
-        if (em != null)
-        {
-            Debug.Log("실행");
-            em.All_Dead_Enemy();
         }
     }
 
